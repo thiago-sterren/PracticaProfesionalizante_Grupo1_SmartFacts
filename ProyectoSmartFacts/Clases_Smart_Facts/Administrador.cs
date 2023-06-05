@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ClassLibrary1
+namespace Clases_Smart_Facts
 {
     public class Administrador : Persona
     {

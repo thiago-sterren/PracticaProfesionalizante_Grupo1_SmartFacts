@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ClassLibrary1
+namespace Clases_Smart_Facts
 {
     public class Producto
     {
@@ -12,5 +12,6 @@ namespace ClassLibrary1
         public string nombre_producto { get; set; }
         public int stock { get; set; }
         public string marca_producto { get; set; }
+        public Proveedor cuit_prov_producto { get; set; }
     }
 }
