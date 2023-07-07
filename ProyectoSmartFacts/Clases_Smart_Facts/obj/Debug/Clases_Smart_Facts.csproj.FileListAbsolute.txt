@@ -1,0 +1,6 @@
+C:\Users\thiag\Desktop\Thiago\GitHub\PracticaProfesionalizante_Grupo1_SmartFacts\ProyectoSmartFacts\Clases_Smart_Facts\bin\Debug\Clases_Smart_Facts.dll
+C:\Users\thiag\Desktop\Thiago\GitHub\PracticaProfesionalizante_Grupo1_SmartFacts\ProyectoSmartFacts\Clases_Smart_Facts\bin\Debug\Clases_Smart_Facts.pdb
+C:\Users\thiag\Desktop\Thiago\GitHub\PracticaProfesionalizante_Grupo1_SmartFacts\ProyectoSmartFacts\Clases_Smart_Facts\obj\Debug\Clases_Smart_Facts.csproj.AssemblyReference.cache
+C:\Users\thiag\Desktop\Thiago\GitHub\PracticaProfesionalizante_Grupo1_SmartFacts\ProyectoSmartFacts\Clases_Smart_Facts\obj\Debug\Clases_Smart_Facts.csproj.CoreCompileInputs.cache
+C:\Users\thiag\Desktop\Thiago\GitHub\PracticaProfesionalizante_Grupo1_SmartFacts\ProyectoSmartFacts\Clases_Smart_Facts\obj\Debug\Clases_Smart_Facts.dll
+C:\Users\thiag\Desktop\Thiago\GitHub\PracticaProfesionalizante_Grupo1_SmartFacts\ProyectoSmartFacts\Clases_Smart_Facts\obj\Debug\Clases_Smart_Facts.pdb
