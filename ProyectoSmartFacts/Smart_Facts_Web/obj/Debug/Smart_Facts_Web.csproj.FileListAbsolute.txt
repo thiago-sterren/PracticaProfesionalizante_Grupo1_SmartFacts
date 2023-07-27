@@ -12,3 +12,5 @@ C:\Users\thiag\Desktop\Thiago\GitHub\PracticaProfesionalizante_Grupo1_SmartFacts
 C:\Users\thiag\Desktop\Thiago\GitHub\PracticaProfesionalizante_Grupo1_SmartFacts\ProyectoSmartFacts\Smart_Facts_Web\obj\Debug\Smart_Facts_Web.csproj.CopyComplete
 C:\Users\thiag\Desktop\Thiago\GitHub\PracticaProfesionalizante_Grupo1_SmartFacts\ProyectoSmartFacts\Smart_Facts_Web\obj\Debug\Smart_Facts_Web.exe
 C:\Users\thiag\Desktop\Thiago\GitHub\PracticaProfesionalizante_Grupo1_SmartFacts\ProyectoSmartFacts\Smart_Facts_Web\obj\Debug\Smart_Facts_Web.pdb
+C:\Users\thiag\Desktop\Thiago\GitHub\PracticaProfesionalizante_Grupo1_SmartFacts\ProyectoSmartFacts\Smart_Facts_Web\obj\Debug\Smart_Facts_Web.Catalogo.resources
+C:\Users\thiag\Desktop\Thiago\GitHub\PracticaProfesionalizante_Grupo1_SmartFacts\ProyectoSmartFacts\Smart_Facts_Web\obj\Debug\Smart_Facts_Web.MenuAdmin.resources
