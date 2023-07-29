@@ -7,36 +7,40 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Clases_Smart_Facts;
 
 namespace Smart_Facts_Web
 {
     public partial class MenuPrincipal : Form
     {
+        private Principal principal;
         public MenuPrincipal()
         {
             InitializeComponent();
+            principal = new Principal();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (txtUsuario.Text == "admin" && txtContra.Text == "admin")
-            {
-                MenuAdmin menuAdmin = new MenuAdmin();
-                menuAdmin.Show();
-                this.Hide();
-            } else
-            {
+                Cliente nuevo_cliente = new Cliente(int.Parse(txtDNI.Text), txtNombre.Text, txtApellido.Text, txtContrasenia.Text);
+                principal.AltaCliente(nuevo_cliente);
                 Catalogo catalogo = new Catalogo();
                 catalogo.Show();
                 this.Hide();
-            }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btnIniciarSesion_Click(object sender, EventArgs e)
         {
-            Registracion registracion = new Registracion();
-            registracion.Show();
-            this.Hide();
+            if (txtDNI.Text == "admin" && txtContrasenia.Text == "admin")
+            {
+                MenuAdmin menuAdmin = new MenuAdmin(principal);
+                menuAdmin.Show();
+                this.Hide();
+            }
+            else
+            {
+
+            }
         }
     }
 }

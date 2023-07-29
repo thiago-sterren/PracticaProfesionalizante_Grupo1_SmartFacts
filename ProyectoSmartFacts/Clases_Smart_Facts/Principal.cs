@@ -9,9 +9,9 @@ namespace Clases_Smart_Facts
 {
     public class Principal
     {
-        public List<Cliente> lista_clientes = new List<Cliente>();
-        public List<Pedido> lista_pedidos = new List<Pedido>();
-        public List<Producto> lista_productos = new List<Producto>();
+        public List<Cliente> lista_clientes { get; set; } = new List<Cliente>();
+        public List<Pedido> lista_pedidos { get; set; } = new List<Pedido>();
+        public List<Producto> lista_productos { get; set; } = new List<Producto>();
         public void AltaCliente(Cliente cliente)
         {
             lista_clientes.Add(cliente);
@@ -20,10 +20,12 @@ namespace Clases_Smart_Facts
         {
             lista_clientes.Remove(cliente);
         }
-        public void ModificacionCliente(Cliente cliente, int ID_Cliente, string Email_Cliente)
+        public void ModificacionCliente(Cliente cliente, int DNI, string Nombre, string Apellido, string Contrasenia)
         {
-            cliente.id_cliente =  ID_Cliente;
-            cliente.email_cliente = Email_Cliente;
+            cliente.dni = DNI;
+            cliente.nombre = Nombre;
+            cliente.apellido = Apellido;
+            cliente.contrasenia = Contrasenia;
         }
         public void AltaPedido(Pedido pedido)
         {

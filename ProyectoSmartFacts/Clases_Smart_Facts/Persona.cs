@@ -8,9 +8,14 @@ namespace Clases_Smart_Facts
 {
     public class Persona
     {
-        public int dni_persona { get; set; }
-        public string nombre_persona { get; set; }
-        public string apellido_persona { get; set; }
-        public string contrasenia_persona { get; set; }
+        public int dni { get; set; }
+        public string nombre { get; set; }
+        public string apellido { get; set; }
+        public Persona(int DNI, string Nombre, string Apellido)
+        {
+            this.dni = DNI;
+            this.nombre = Nombre;
+            this.apellido = Apellido;
+        }
     }
 }

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Clases_Smart_Facts;
 
 namespace Smart_Facts_Web
 {
