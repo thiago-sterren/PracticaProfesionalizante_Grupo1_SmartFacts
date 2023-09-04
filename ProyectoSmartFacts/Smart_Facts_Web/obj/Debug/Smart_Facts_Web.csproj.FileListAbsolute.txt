@@ -5,7 +5,6 @@ C:\Users\thiag\Desktop\Thiago\GitHub\PracticaProfesionalizante_Grupo1_SmartFacts
 C:\Users\thiag\Desktop\Thiago\GitHub\PracticaProfesionalizante_Grupo1_SmartFacts\ProyectoSmartFacts\Smart_Facts_Web\bin\Debug\Clases_Smart_Facts.pdb
 C:\Users\thiag\Desktop\Thiago\GitHub\PracticaProfesionalizante_Grupo1_SmartFacts\ProyectoSmartFacts\Smart_Facts_Web\obj\Debug\Smart_Facts_Web.csproj.AssemblyReference.cache
 C:\Users\thiag\Desktop\Thiago\GitHub\PracticaProfesionalizante_Grupo1_SmartFacts\ProyectoSmartFacts\Smart_Facts_Web\obj\Debug\Smart_Facts_Web.csproj.SuggestedBindingRedirects.cache
-C:\Users\thiag\Desktop\Thiago\GitHub\PracticaProfesionalizante_Grupo1_SmartFacts\ProyectoSmartFacts\Smart_Facts_Web\obj\Debug\Smart_Facts_Web.MenuPrincipal.resources
 C:\Users\thiag\Desktop\Thiago\GitHub\PracticaProfesionalizante_Grupo1_SmartFacts\ProyectoSmartFacts\Smart_Facts_Web\obj\Debug\Smart_Facts_Web.Properties.Resources.resources
 C:\Users\thiag\Desktop\Thiago\GitHub\PracticaProfesionalizante_Grupo1_SmartFacts\ProyectoSmartFacts\Smart_Facts_Web\obj\Debug\Smart_Facts_Web.csproj.GenerateResource.cache
 C:\Users\thiag\Desktop\Thiago\GitHub\PracticaProfesionalizante_Grupo1_SmartFacts\ProyectoSmartFacts\Smart_Facts_Web\obj\Debug\Smart_Facts_Web.csproj.CoreCompileInputs.cache
@@ -14,3 +13,5 @@ C:\Users\thiag\Desktop\Thiago\GitHub\PracticaProfesionalizante_Grupo1_SmartFacts
 C:\Users\thiag\Desktop\Thiago\GitHub\PracticaProfesionalizante_Grupo1_SmartFacts\ProyectoSmartFacts\Smart_Facts_Web\obj\Debug\Smart_Facts_Web.pdb
 C:\Users\thiag\Desktop\Thiago\GitHub\PracticaProfesionalizante_Grupo1_SmartFacts\ProyectoSmartFacts\Smart_Facts_Web\obj\Debug\Smart_Facts_Web.Catalogo.resources
 C:\Users\thiag\Desktop\Thiago\GitHub\PracticaProfesionalizante_Grupo1_SmartFacts\ProyectoSmartFacts\Smart_Facts_Web\obj\Debug\Smart_Facts_Web.MenuAdmin.resources
+C:\Users\thiag\Desktop\Thiago\GitHub\PracticaProfesionalizante_Grupo1_SmartFacts\ProyectoSmartFacts\Smart_Facts_Web\obj\Debug\Smart_Facts_Web.MenuPrincipal.resources
+C:\Users\thiag\Desktop\Thiago\GitHub\PracticaProfesionalizante_Grupo1_SmartFacts\ProyectoSmartFacts\Smart_Facts_Web\obj\Debug\Smart_Facts_Web.PantallaInicioSesion.resources

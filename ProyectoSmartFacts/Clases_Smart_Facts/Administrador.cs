@@ -8,10 +8,10 @@ namespace Clases_Smart_Facts
 {
     public class Administrador : Persona
     {
-        public double saldo { get; set; }
-        public Administrador(int DNI, string Nombre, string Apellido, double Saldo) : base(DNI, Nombre, Apellido)
+        public double sueldo { get; set; }
+        public Administrador(int DNI, string Nombre, string Apellido, double Sueldo) : base(DNI, Nombre, Apellido)
         {
-            this.saldo = Saldo;
+            this.sueldo = Sueldo;
         }
     }
 }

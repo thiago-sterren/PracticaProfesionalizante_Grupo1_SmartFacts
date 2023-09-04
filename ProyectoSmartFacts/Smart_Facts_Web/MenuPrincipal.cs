@@ -22,25 +22,26 @@ namespace Smart_Facts_Web
 
         private void button1_Click(object sender, EventArgs e)
         {
-                Cliente nuevo_cliente = new Cliente(int.Parse(txtDNI.Text), txtNombre.Text, txtApellido.Text, txtContrasenia.Text);
-                principal.AltaCliente(nuevo_cliente);
-                Catalogo catalogo = new Catalogo();
-                catalogo.Show();
-                this.Hide();
+            Cliente nuevo_cliente = new Cliente(int.Parse(txtDNI.Text), txtNombre.Text, txtApellido.Text, txtContrasenia.Text);
+            principal.AltaCliente(nuevo_cliente);
+            Catalogo catalogo = new Catalogo();
+            catalogo.Show();
         }
 
         private void btnIniciarSesion_Click(object sender, EventArgs e)
         {
-            if (txtDNI.Text == "admin" && txtContrasenia.Text == "admin")
-            {
-                MenuAdmin menuAdmin = new MenuAdmin(principal);
-                menuAdmin.Show();
-                this.Hide();
-            }
-            else
-            {
+            
+        }
 
-            }
+        private void MenuPrincipal_Load(object sender, EventArgs e)
+        {
+            principal.GenerarClientesHardcodeados();
+        }
+
+        private void btnInicioSesion_Click(object sender, EventArgs e)
+        {
+            PantallaInicioSesion inicio_sesion = new PantallaInicioSesion();
+            inicio_sesion.Show();
         }
     }
 }

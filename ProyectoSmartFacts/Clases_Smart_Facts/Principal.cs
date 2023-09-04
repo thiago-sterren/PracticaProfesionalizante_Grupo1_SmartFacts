@@ -9,9 +9,10 @@ namespace Clases_Smart_Facts
 {
     public class Principal
     {
-        public List<Cliente> lista_clientes { get; set; } = new List<Cliente>();
-        public List<Pedido> lista_pedidos { get; set; } = new List<Pedido>();
-        public List<Producto> lista_productos { get; set; } = new List<Producto>();
+        public List<Cliente> lista_clientes = new List<Cliente>();
+        public List<Pedido> lista_pedidos = new List<Pedido>();
+        public List<Producto> lista_productos = new List<Producto>();
+        public List<Cliente> lista_clientes_hardcodeados = new List<Cliente>();
         public void AltaCliente(Cliente cliente)
         {
             lista_clientes.Add(cliente);
@@ -20,12 +21,10 @@ namespace Clases_Smart_Facts
         {
             lista_clientes.Remove(cliente);
         }
-        public void ModificacionCliente(Cliente cliente, int DNI, string Nombre, string Apellido, string Contrasenia)
+        public void ModificacionCliente(Cliente cliente_viejo, Cliente cliente_nuevo)
         {
-            cliente.dni = DNI;
-            cliente.nombre = Nombre;
-            cliente.apellido = Apellido;
-            cliente.contrasenia = Contrasenia;
+            lista_clientes.Remove(cliente_viejo);
+            lista_clientes.Add(cliente_nuevo);
         }
         public void AltaPedido(Pedido pedido)
         {
@@ -35,13 +34,10 @@ namespace Clases_Smart_Facts
         {
             lista_pedidos.Remove(pedido);
         }
-        public void ModificacionPedido(Pedido pedido, DateTime Fecha_Pedido, int Cantidad_Productos, int ID_Pedido, Cliente ID_Cliente_Pedido, Producto ID_Producto_Pedido)
+        public void ModificacionPedido(Pedido pedido_viejo, Pedido pedido_nuevo)
         {
-            pedido.fecha_pedido = Fecha_Pedido;
-            pedido.cantidad_productos = Cantidad_Productos;
-            pedido.id_pedido = ID_Pedido;
-            pedido.id_cliente_pedido = ID_Cliente_Pedido;
-            pedido.id_producto_pedido = ID_Producto_Pedido;
+            lista_pedidos.Remove(pedido_viejo);
+            lista_pedidos.Add(pedido_nuevo);
         }
         public void AltaProducto(Producto producto)
         {
@@ -51,13 +47,22 @@ namespace Clases_Smart_Facts
         {
             lista_productos.Remove(producto);
         }
-        public void ModificacionProducto(Producto producto, int ID_Producto, string Nombre_Producto, int Stock, string Marca_Producto, Proveedor CUIT_Prov_Producto)
+        public void ModificacionProducto(Producto producto_viejo, Producto producto_nuevo)
         {
-            producto.id_producto = ID_Producto;
-            producto.nombre_producto = Nombre_Producto;
-            producto.stock = Stock;
-            producto.marca_producto = Marca_Producto;
-            producto.cuit_prov_producto = CUIT_Prov_Producto;
+            lista_productos.Remove(producto_viejo);
+            lista_productos.Add(producto_nuevo);
+        }
+        public List<Cliente> GenerarClientesHardcodeados()
+        {
+            Cliente cliente_1 = new Cliente(45953027, "Thiago", "Sterren", "ts2004");
+            Cliente cliente_2 = new Cliente(45342920, "Fabrizio", "Failla", "ff2003");
+            Cliente cliente_3 = new Cliente(45504354, "Alan", "Ferri", "af2004");
+            Cliente cliente_4 = new Cliente(40928873, "Santiago", "Gutiérrez", "sg1998");
+            lista_clientes_hardcodeados.Add(cliente_1);
+            lista_clientes_hardcodeados.Add(cliente_2);
+            lista_clientes_hardcodeados.Add(cliente_3);
+            lista_clientes_hardcodeados.Add(cliente_4);
+            return lista_clientes_hardcodeados;
         }
 
     }
