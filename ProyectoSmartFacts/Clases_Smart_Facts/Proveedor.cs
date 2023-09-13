@@ -8,7 +8,7 @@ namespace Clases_Smart_Facts
 {
     public class Proveedor
     {
-        public string cuit_prov { get; set; }
+        public int cuit_prov { get; set; }
         public string nombre_empresa { get; set; }
     }
 }

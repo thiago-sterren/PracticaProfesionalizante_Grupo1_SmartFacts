@@ -42,6 +42,7 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
+            this.button4 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnVolver
@@ -166,11 +167,21 @@
             this.textBox4.Size = new System.Drawing.Size(200, 26);
             this.textBox4.TabIndex = 13;
             // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(354, 479);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(139, 43);
+            this.button4.TabIndex = 14;
+            this.button4.Text = "Lista productos";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
             // MenuAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1501, 673);
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox2);
@@ -209,5 +220,6 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.Button button4;
     }
 }

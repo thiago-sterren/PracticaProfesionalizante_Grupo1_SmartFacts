@@ -1,6 +1,3 @@
-separar pantallas de log in y registracion
-hardcodear un par de usuarios. hacer una lista en principal con los usuarios hardcodeados aparte. tambien un metodo y llamarlo en el load de la primera ventana tick
-pantalla de admin con abm
 clases de productos nuevo y usado (agregarle propiedades distintas a c u q los diferencien)
 hacer pantalla de abm de productos (usados y nuevos) como hicimos en el parcial
 conectar todas las ventanas

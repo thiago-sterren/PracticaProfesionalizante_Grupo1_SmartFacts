@@ -42,8 +42,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Administrador.cs" />
+    <Compile Include="CelularNuevo.cs" />
+    <Compile Include="CelularUsado.cs" />
     <Compile Include="Cliente.cs" />
     <Compile Include="HistorialPedido.cs" />
+    <Compile Include="Notebook.cs" />
     <Compile Include="Pedido.cs" />
     <Compile Include="Persona.cs" />
     <Compile Include="Principal.cs" />

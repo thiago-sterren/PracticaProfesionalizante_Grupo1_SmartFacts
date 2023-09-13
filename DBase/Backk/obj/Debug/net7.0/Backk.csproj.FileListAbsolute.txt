@@ -1,0 +1,17 @@
+C:\Users\thiag\Desktop\Thiago\GitHub\programacion1_2023\DBase\Backk\obj\Debug\net7.0\Backk.csproj.AssemblyReference.cache
+C:\Users\thiag\Desktop\Thiago\GitHub\programacion1_2023\DBase\Backk\obj\Debug\net7.0\Backk.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\thiag\Desktop\Thiago\GitHub\programacion1_2023\DBase\Backk\obj\Debug\net7.0\Backk.AssemblyInfoInputs.cache
+C:\Users\thiag\Desktop\Thiago\GitHub\programacion1_2023\DBase\Backk\obj\Debug\net7.0\Backk.AssemblyInfo.cs
+C:\Users\thiag\Desktop\Thiago\GitHub\programacion1_2023\DBase\Backk\obj\Debug\net7.0\Backk.csproj.CoreCompileInputs.cache
+C:\Users\thiag\Desktop\Thiago\GitHub\DBase\Backk\bin\Debug\net7.0\Backk.deps.json
+C:\Users\thiag\Desktop\Thiago\GitHub\DBase\Backk\bin\Debug\net7.0\Backk.dll
+C:\Users\thiag\Desktop\Thiago\GitHub\DBase\Backk\bin\Debug\net7.0\Backk.pdb
+C:\Users\thiag\Desktop\Thiago\GitHub\DBase\Backk\obj\Debug\net7.0\Backk.csproj.AssemblyReference.cache
+C:\Users\thiag\Desktop\Thiago\GitHub\DBase\Backk\obj\Debug\net7.0\Backk.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\thiag\Desktop\Thiago\GitHub\DBase\Backk\obj\Debug\net7.0\Backk.AssemblyInfoInputs.cache
+C:\Users\thiag\Desktop\Thiago\GitHub\DBase\Backk\obj\Debug\net7.0\Backk.AssemblyInfo.cs
+C:\Users\thiag\Desktop\Thiago\GitHub\DBase\Backk\obj\Debug\net7.0\Backk.csproj.CoreCompileInputs.cache
+C:\Users\thiag\Desktop\Thiago\GitHub\DBase\Backk\obj\Debug\net7.0\Backk.dll
+C:\Users\thiag\Desktop\Thiago\GitHub\DBase\Backk\obj\Debug\net7.0\refint\Backk.dll
+C:\Users\thiag\Desktop\Thiago\GitHub\DBase\Backk\obj\Debug\net7.0\Backk.pdb
+C:\Users\thiag\Desktop\Thiago\GitHub\DBase\Backk\obj\Debug\net7.0\ref\Backk.dll
