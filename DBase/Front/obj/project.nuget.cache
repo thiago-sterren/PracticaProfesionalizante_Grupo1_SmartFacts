@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "h//x6o9gdCynAgio0H42EeSWFzGhCWLVBfTZ2nQVK4LOs8hK4c/uhftlVTxx7+0j3goCX3EaiXsdMr85X/AiPw==",
+  "dgSpecHash": "LVSVrLFn0CHhmOcw3jBfDY9r7bNnBZbLFElV6aucG1Pk9L6YOO7vvvksRb7MBj9hjin3Z6pR3JK9m79PIY7Wlw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\thiag\\Desktop\\Thiago\\GitHub\\DBase\\Front\\Front.csproj",
+  "projectFilePath": "C:\\Users\\thiag\\Desktop\\Thiago\\GitHub\\PracticaProfesionalizante_Grupo1_SmartFacts\\DBase\\Front\\Front.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\thiag\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\thiag\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

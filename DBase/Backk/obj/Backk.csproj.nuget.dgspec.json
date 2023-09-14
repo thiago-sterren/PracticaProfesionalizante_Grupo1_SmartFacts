@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\thiag\\Desktop\\Thiago\\GitHub\\DBase\\Backk\\Backk.csproj": {}
+    "C:\\Users\\thiag\\Desktop\\Thiago\\GitHub\\PracticaProfesionalizante_Grupo1_SmartFacts\\DBase\\Backk\\Backk.csproj": {}
   },
   "projects": {
-    "C:\\Users\\thiag\\Desktop\\Thiago\\GitHub\\DBase\\Backk\\Backk.csproj": {
+    "C:\\Users\\thiag\\Desktop\\Thiago\\GitHub\\PracticaProfesionalizante_Grupo1_SmartFacts\\DBase\\Backk\\Backk.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\thiag\\Desktop\\Thiago\\GitHub\\DBase\\Backk\\Backk.csproj",
+        "projectUniqueName": "C:\\Users\\thiag\\Desktop\\Thiago\\GitHub\\PracticaProfesionalizante_Grupo1_SmartFacts\\DBase\\Backk\\Backk.csproj",
         "projectName": "Backk",
-        "projectPath": "C:\\Users\\thiag\\Desktop\\Thiago\\GitHub\\DBase\\Backk\\Backk.csproj",
+        "projectPath": "C:\\Users\\thiag\\Desktop\\Thiago\\GitHub\\PracticaProfesionalizante_Grupo1_SmartFacts\\DBase\\Backk\\Backk.csproj",
         "packagesPath": "C:\\Users\\thiag\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\thiag\\Desktop\\Thiago\\GitHub\\DBase\\Backk\\obj\\",
+        "outputPath": "C:\\Users\\thiag\\Desktop\\Thiago\\GitHub\\PracticaProfesionalizante_Grupo1_SmartFacts\\DBase\\Backk\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
