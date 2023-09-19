@@ -1,23 +1,31 @@
-﻿using System;
+﻿using Microsoft.Identity.Client;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Backk
 {
-    public class Cliente : Persona
+    public class Cliente
     {
+        public int id { get; set; }
+        public string nombre { get; set; }
+        public string apellido { get; set; }
         public string contrasenia { get; set; }
-        public Cliente(int DNI, string Nombre, string Apellido, string Contrasenia) : base(DNI, Nombre, Apellido)
+        public string usuario { get; set; }
+        public Cliente(int id, string nombre, string apellido, string contrasenia, string usuario)
         {
-            this.contrasenia = Contrasenia;
+            this.id = id;
+            this.nombre = nombre;
+            this.apellido = apellido;
+            this.contrasenia = contrasenia;
+            this.usuario = usuario;
         }
         public string info_list_box
         {
-            get { return $"{nombre} {apellido}. DNI: {dni}. Contrasenia: {contrasenia}."; }
+            get { return $"{nombre} {apellido}. ID: {id}. Contrasenia: {contrasenia}."; }
         }
     }
 }

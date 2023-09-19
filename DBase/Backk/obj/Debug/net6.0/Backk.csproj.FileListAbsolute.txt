@@ -1,0 +1,14 @@
+C:\Users\thiag\Desktop\Thiago\GitHub\PracticaProfesionalizante_Grupo1_SmartFacts\DBase\Backk\obj\Debug\net6.0\Backk.csproj.AssemblyReference.cache
+C:\Users\thiag\Desktop\Thiago\GitHub\PracticaProfesionalizante_Grupo1_SmartFacts\DBase\Backk\obj\Debug\net6.0\Backk.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\thiag\Desktop\Thiago\GitHub\PracticaProfesionalizante_Grupo1_SmartFacts\DBase\Backk\obj\Debug\net6.0\Backk.AssemblyInfoInputs.cache
+C:\Users\thiag\Desktop\Thiago\GitHub\PracticaProfesionalizante_Grupo1_SmartFacts\DBase\Backk\obj\Debug\net6.0\Backk.AssemblyInfo.cs
+C:\Users\thiag\Desktop\Thiago\GitHub\PracticaProfesionalizante_Grupo1_SmartFacts\DBase\Backk\obj\Debug\net6.0\Backk.csproj.CoreCompileInputs.cache
+C:\Users\thiag\Desktop\Thiago\GitHub\PracticaProfesionalizante_Grupo1_SmartFacts\DBase\Backk\bin\Debug\net6.0\Backk.deps.json
+C:\Users\thiag\Desktop\Thiago\GitHub\PracticaProfesionalizante_Grupo1_SmartFacts\DBase\Backk\bin\Debug\net6.0\Backk.runtimeconfig.json
+C:\Users\thiag\Desktop\Thiago\GitHub\PracticaProfesionalizante_Grupo1_SmartFacts\DBase\Backk\bin\Debug\net6.0\Backk.dll
+C:\Users\thiag\Desktop\Thiago\GitHub\PracticaProfesionalizante_Grupo1_SmartFacts\DBase\Backk\bin\Debug\net6.0\Backk.pdb
+C:\Users\thiag\Desktop\Thiago\GitHub\PracticaProfesionalizante_Grupo1_SmartFacts\DBase\Backk\obj\Debug\net6.0\Backk.dll
+C:\Users\thiag\Desktop\Thiago\GitHub\PracticaProfesionalizante_Grupo1_SmartFacts\DBase\Backk\obj\Debug\net6.0\refint\Backk.dll
+C:\Users\thiag\Desktop\Thiago\GitHub\PracticaProfesionalizante_Grupo1_SmartFacts\DBase\Backk\obj\Debug\net6.0\Backk.pdb
+C:\Users\thiag\Desktop\Thiago\GitHub\PracticaProfesionalizante_Grupo1_SmartFacts\DBase\Backk\obj\Debug\net6.0\Backk.genruntimeconfig.cache
+C:\Users\thiag\Desktop\Thiago\GitHub\PracticaProfesionalizante_Grupo1_SmartFacts\DBase\Backk\obj\Debug\net6.0\ref\Backk.dll

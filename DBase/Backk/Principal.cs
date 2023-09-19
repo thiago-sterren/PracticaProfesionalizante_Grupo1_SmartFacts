@@ -5,60 +5,86 @@ namespace Backk
     public class Principal
     {
         ApplicationDbContext context = new ApplicationDbContext(); // instancia de la bd
-        public List<Cliente> lista_clientes = new List<Cliente>();
-        public List<Pedido> lista_pedidos = new List<Pedido>();
-        public List<Producto> lista_productos = new List<Producto>();
-        public List<Cliente> lista_clientes_hardcodeados = new List<Cliente>();
         public void AltaCliente(Cliente cliente)
         {
-            lista_clientes.Add(cliente);
+            context.Clientes.Add(cliente);
+            context.SaveChanges();
         }
         public void BajaCliente(Cliente cliente)
         {
-            lista_clientes.Remove(cliente);
+            context.Clientes.Remove(cliente);
+            context.SaveChanges();
         }
         public void ModificacionCliente(Cliente cliente_viejo, Cliente cliente_nuevo)
         {
-            lista_clientes.Remove(cliente_viejo);
-            lista_clientes.Add(cliente_nuevo);
+            context.Clientes.Remove(cliente_viejo);
+            context.Clientes.Add(cliente_nuevo);
+            context.SaveChanges();
         }
         public void AltaPedido(Pedido pedido)
         {
-            lista_pedidos.Add(pedido);
+            context.Pedidos.Add(pedido);
+            context.SaveChanges();
         }
         public void BajaPedido(Pedido pedido)
         {
-            lista_pedidos.Remove(pedido);
+            context.Pedidos.Remove(pedido);
+            context.SaveChanges();
         }
         public void ModificacionPedido(Pedido pedido_viejo, Pedido pedido_nuevo)
         {
-            lista_pedidos.Remove(pedido_viejo);
-            lista_pedidos.Add(pedido_nuevo);
+            context.Pedidos.Remove(pedido_viejo);
+            context.Pedidos.Add(pedido_nuevo);
+            context.SaveChanges();
         }
-        public void AltaProducto(Producto producto)
+        public void AltaCeluNuevo(CelularNuevo celu)
         {
-            lista_productos.Add(producto);
+            context.CelusNuevos.Add(celu);
+            context.SaveChanges();
         }
-        public void BajaProducto(Producto producto)
+        public void BajaCeluNuevo(CelularNuevo celu)
         {
-            lista_productos.Remove(producto);
+            context.CelusNuevos.Remove(celu);
+            context.SaveChanges();
         }
-        public void ModificacionProducto(Producto producto_viejo, Producto producto_nuevo)
+        public void ModificacionCeluNuevo(CelularNuevo celu_eliminado, CelularNuevo celu_agregado)
         {
-            lista_productos.Remove(producto_viejo);
-            lista_productos.Add(producto_nuevo);
+            context.CelusNuevos.Remove(celu_eliminado);
+            context.CelusNuevos.Add(celu_agregado);
+            context.SaveChanges();
         }
-        public List<Cliente> GenerarClientesHardcodeados()
+        public void AltaCeluUsado(CelularUsado celu)
         {
-            Cliente cliente_1 = new Cliente(45953027, "Thiago", "Sterren", "ts2004");
-            Cliente cliente_2 = new Cliente(45342920, "Fabrizio", "Failla", "ff2003");
-            Cliente cliente_3 = new Cliente(45504354, "Alan", "Ferri", "af2004");
-            Cliente cliente_4 = new Cliente(40928873, "Santiago", "Gutiérrez", "sg1998");
-            lista_clientes_hardcodeados.Add(cliente_1);
-            lista_clientes_hardcodeados.Add(cliente_2);
-            lista_clientes_hardcodeados.Add(cliente_3);
-            lista_clientes_hardcodeados.Add(cliente_4);
-            return lista_clientes_hardcodeados;
+            context.CelusUsados.Add(celu);
+            context.SaveChanges();
+        }
+        public void BajaCeluUsado(CelularUsado celu)
+        {
+            context.CelusUsados.Remove(celu);
+            context.SaveChanges();
+        }
+        public void ModificacionCeluUsado(CelularUsado celu_eliminado, CelularUsado celu_agregado)
+        {
+            context.CelusUsados.Remove(celu_eliminado);
+            context.CelusUsados.Add(celu_agregado);
+            context.SaveChanges();
+        }
+        public void AltaNotebook(Notebook note)
+        {
+            context.Notebooks.Add(note);
+            context.SaveChanges();
+
+        }
+        public void BajaNotebook(Notebook note)
+        {
+            context.Notebooks.Remove(note);
+            context.SaveChanges();
+        }
+        public void ModificacionNotebook(Notebook note_eliminada, Notebook note_agregada)
+        {
+            context.Notebooks.Remove(note_eliminada);
+            context.Notebooks.Add(note_agregada);
+            context.SaveChanges();
         }
     }
 }

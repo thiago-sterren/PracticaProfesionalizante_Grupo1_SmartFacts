@@ -6,12 +6,22 @@ using System.Threading.Tasks;
 
 namespace Backk
 {
-    public class Administrador : Persona
+    public class Administrador
     {
-        public double sueldo { get; set; }
-        public Administrador(int DNI, string Nombre, string Apellido, double Sueldo) : base(DNI, Nombre, Apellido)
+        public int id { get; set; }
+        public string nombre { get; set; }
+        public string apellido { get; set; }
+        public string usuario { get; set; }
+        public string contrasenia { get; set; }
+        public double salario { get; set; }
+        public Administrador(int id, string? nombre, string? apellido, string? usuario, string? contrasenia, double salario)
         {
-            this.sueldo = Sueldo;
+            this.id = id;
+            this.nombre = nombre;
+            this.apellido = apellido;
+            this.usuario = usuario;
+            this.contrasenia = contrasenia;
+            this.salario = salario;
         }
     }
 }

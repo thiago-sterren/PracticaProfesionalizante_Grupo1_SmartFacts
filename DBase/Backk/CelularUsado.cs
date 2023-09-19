@@ -10,12 +10,12 @@ namespace Backk
     {
         public string detalles { get; set; }
         public string uso { get; set; }
-        public string estado { get; set; }
-        public CelularUsado(int ID_producto, string Marca_producto, string Nombre_producto, int Stock, double Precio, double Almacenamiento, string Detalles, string Uso, string Estado) : base(ID_producto, Marca_producto, Nombre_producto, Stock, Precio, Almacenamiento)
+        public string condicion_bat { get; set; }
+        public CelularUsado(int id, string marca_producto, string nombre_producto, int stock, double precio, double almacenamiento, string detalles, string uso, string condicion_bat) : base(id, marca_producto, nombre_producto, stock, precio, almacenamiento)
         {
-            this.detalles = Detalles;
-            this.uso = Uso;
-            this.estado = Estado;
+            this.detalles = detalles;
+            this.uso = uso;
+            this.condicion_bat = condicion_bat;
         }
     }
 }

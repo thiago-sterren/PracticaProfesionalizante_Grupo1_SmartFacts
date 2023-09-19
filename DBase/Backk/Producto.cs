@@ -8,20 +8,20 @@ namespace Backk
 {
     public class Producto
     {
-        public int id_producto { get; set; }
+        public int id { get; set; }
         public string marca_producto { get; set; }
         public string nombre_producto { get; set; }
         public int stock { get; set; }
         public double precio { get; set; }
         public double almacenamiento { get; set; }
-        public Producto(int ID_producto, string Marca_producto, string Nombre_producto, int Stock, double Precio, double Almacenamiento)
+        public Producto(int id, string marca_producto, string nombre_producto, int stock, double precio, double almacenamiento)
         {
-            this.id_producto = ID_producto;
-            this.marca_producto = Marca_producto;
-            this.nombre_producto = Nombre_producto;
-            this.stock = Stock;
-            this.precio = Precio;
-            this.almacenamiento = Almacenamiento;
+            this.id = id;
+            this.marca_producto = marca_producto;
+            this.nombre_producto = nombre_producto;
+            this.stock = stock;
+            this.precio = precio;
+            this.almacenamiento = almacenamiento;
         }
     }
 }

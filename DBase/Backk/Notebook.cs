@@ -11,11 +11,11 @@ namespace Backk
         public string idioma_teclado { get; set; }
         public double cm_alto { get; set; }
         public double cm_ancho { get; set; }
-        public Notebook(int ID_producto, string Marca_producto, string Nombre_producto, int Stock, double Precio, double Almacenamiento, string Idioma_teclado, double CM_alto, double CM_ancho) : base(ID_producto, Marca_producto, Nombre_producto, Stock, Precio, Almacenamiento)
+        public Notebook(int id, string marca_producto, string nombre_producto, int stock, double precio, double almacenamiento, string idioma_teclado, double cm_alto, double cm_ancho) : base(id, marca_producto, nombre_producto, stock, precio, almacenamiento)
         {
-            this.idioma_teclado = Idioma_teclado;
-            this.cm_alto = CM_alto;
-            this.cm_ancho = CM_ancho;
+            this.idioma_teclado = idioma_teclado;
+            this.cm_alto = cm_alto;
+            this.cm_ancho = cm_ancho;
         }
     }
 }
