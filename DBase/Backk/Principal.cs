@@ -5,6 +5,10 @@ namespace Backk
     public class Principal
     {
         ApplicationDbContext context = new ApplicationDbContext(); // instancia de la bd
+        public List<Cliente> DevolverListaClientes()
+        {
+            return context.Clientes.ToList();
+        }
         public void AltaCliente(Cliente cliente)
         {
             context.Clientes.Add(cliente);
@@ -21,7 +25,7 @@ namespace Backk
             context.Clientes.Add(cliente_nuevo);
             context.SaveChanges();
         }
-        public void AltaPedido(Pedido pedido)
+        /*public void AltaPedido(Pedido pedido)
         {
             context.Pedidos.Add(pedido);
             context.SaveChanges();
@@ -36,7 +40,7 @@ namespace Backk
             context.Pedidos.Remove(pedido_viejo);
             context.Pedidos.Add(pedido_nuevo);
             context.SaveChanges();
-        }
+        }*/
         public void AltaCeluNuevo(CelularNuevo celu)
         {
             context.CelusNuevos.Add(celu);

@@ -15,9 +15,8 @@ namespace Backk
         public string apellido { get; set; }
         public string contrasenia { get; set; }
         public string usuario { get; set; }
-        public Cliente(int id, string nombre, string apellido, string contrasenia, string usuario)
+        public Cliente(string nombre, string apellido, string contrasenia, string usuario)
         {
-            this.id = id;
             this.nombre = nombre;
             this.apellido = apellido;
             this.contrasenia = contrasenia;
@@ -25,7 +24,7 @@ namespace Backk
         }
         public string info_list_box
         {
-            get { return $"{nombre} {apellido}. ID: {id}. Contrasenia: {contrasenia}."; }
+            get { return $"{nombre} {apellido}. ID: {id}. Usuario: {usuario}. Contrasenia: {contrasenia}."; }
         }
     }
 }
