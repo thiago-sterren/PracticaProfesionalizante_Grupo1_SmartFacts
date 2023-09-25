@@ -24,7 +24,7 @@ namespace Backk
         }
         public string info_list_box
         {
-            get { return $"{nombre} {apellido}. ID: {id}. Usuario: {usuario}. Contrasenia: {contrasenia}."; }
+            get { return $"{nombre} {apellido}. ID: {id}. Usuario: {usuario}. Contraseña: {contrasenia}."; }
         }
     }
 }

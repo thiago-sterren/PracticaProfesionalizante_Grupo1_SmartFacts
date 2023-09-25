@@ -42,6 +42,9 @@ namespace Front
                 Cliente cliente = new Cliente(txtNombre.Text, txtApellido.Text, txtContrasenia.Text, txtUsuario.Text);
                 principal.AltaCliente(cliente);
                 MessageBox.Show("Se ha registrado con éxito");
+                Catalogo catalogo = new Catalogo();
+                catalogo.Show();
+                this.Hide();
             }
             else
             {
