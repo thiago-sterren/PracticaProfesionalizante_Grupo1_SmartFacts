@@ -12,14 +12,19 @@ namespace Backk
         public string marca_producto { get; set; }
         public string nombre_producto { get; set; }
         public int stock { get; set; }
+        public enum DispStock
+        {
+            Disponible, NoDisponible
+        }
+        public DispStock disponibilidad { get; set; } = DispStock.Disponible;
         public double precio { get; set; }
         public double almacenamiento { get; set; }
-        public Producto(int id, string marca_producto, string nombre_producto, int stock, double precio, double almacenamiento)
+        public Producto(string marca_producto, string nombre_producto, int stock, double precio, double almacenamiento)
         {
-            this.id = id;
             this.marca_producto = marca_producto;
             this.nombre_producto = nombre_producto;
             this.stock = stock;
+            this.disponibilidad = disponibilidad;
             this.precio = precio;
             this.almacenamiento = almacenamiento;
         }

@@ -9,6 +9,18 @@ namespace Backk
         {
             return context.Clientes.ToList();
         }
+        public List<CelularNuevo> DevolverListaCelusNuevos()
+        {
+            return context.CelusNuevos.ToList();
+        }
+        public List<CelularUsado> DevolverListaCelusUsados()
+        {
+            return context.CelusUsados.ToList();
+        }
+        public List<Notebook> DevolverListaNotebooks()
+        {
+            return context.Notebooks.ToList();
+        }
         public void AltaCliente(Cliente cliente)
         {
             context.Clientes.Add(cliente);
