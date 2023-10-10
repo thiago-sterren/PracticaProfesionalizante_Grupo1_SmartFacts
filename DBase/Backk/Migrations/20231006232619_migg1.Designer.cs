@@ -4,6 +4,7 @@ using Backk;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Backk.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231006232619_migg1")]
+    partial class migg1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -100,32 +103,12 @@ namespace Backk.Migrations
                     b.Property<int>("id_cliente_pedidoid")
                         .HasColumnType("int");
 
-                    b.Property<int?>("id_producto_pedido_2id")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("id_producto_pedido_3id")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("id_producto_pedido_4id")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("id_producto_pedido_5id")
-                        .HasColumnType("int");
-
                     b.Property<int>("id_producto_pedidoid")
                         .HasColumnType("int");
 
                     b.HasKey("id");
 
                     b.HasIndex("id_cliente_pedidoid");
-
-                    b.HasIndex("id_producto_pedido_2id");
-
-                    b.HasIndex("id_producto_pedido_3id");
-
-                    b.HasIndex("id_producto_pedido_4id");
-
-                    b.HasIndex("id_producto_pedido_5id");
 
                     b.HasIndex("id_producto_pedidoid");
 
@@ -228,22 +211,6 @@ namespace Backk.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Backk.Producto", "id_producto_pedido_2")
-                        .WithMany()
-                        .HasForeignKey("id_producto_pedido_2id");
-
-                    b.HasOne("Backk.Producto", "id_producto_pedido_3")
-                        .WithMany()
-                        .HasForeignKey("id_producto_pedido_3id");
-
-                    b.HasOne("Backk.Producto", "id_producto_pedido_4")
-                        .WithMany()
-                        .HasForeignKey("id_producto_pedido_4id");
-
-                    b.HasOne("Backk.Producto", "id_producto_pedido_5")
-                        .WithMany()
-                        .HasForeignKey("id_producto_pedido_5id");
-
                     b.HasOne("Backk.Producto", "id_producto_pedido")
                         .WithMany()
                         .HasForeignKey("id_producto_pedidoid")
@@ -253,14 +220,6 @@ namespace Backk.Migrations
                     b.Navigation("id_cliente_pedido");
 
                     b.Navigation("id_producto_pedido");
-
-                    b.Navigation("id_producto_pedido_2");
-
-                    b.Navigation("id_producto_pedido_3");
-
-                    b.Navigation("id_producto_pedido_4");
-
-                    b.Navigation("id_producto_pedido_5");
                 });
 #pragma warning restore 612, 618
         }

@@ -37,7 +37,7 @@ namespace Backk
             context.Clientes.Add(cliente_nuevo);
             context.SaveChanges();
         }
-        /*public void AltaPedido(Pedido pedido)
+        public void AltaPedido(Pedido pedido)
         {
             context.Pedidos.Add(pedido);
             context.SaveChanges();
@@ -52,7 +52,27 @@ namespace Backk
             context.Pedidos.Remove(pedido_viejo);
             context.Pedidos.Add(pedido_nuevo);
             context.SaveChanges();
-        }*/
+        }
+        public void AgregarProducto(Pedido pedido, Producto producto, Producto producto2, Producto producto3, Producto producto4, Producto producto5)
+        {
+            pedido.id_producto_pedido = producto;
+            if (producto2 != null)
+            {
+                pedido.id_producto_pedido_2 = producto2;
+                if(producto3 != null)
+                {
+                    pedido.id_producto_pedido_3 = producto3;
+                    if (producto4 != null)
+                    {
+                        pedido.id_producto_pedido_4 = producto4;
+                        if (producto5 != null)
+                        {
+                            pedido.id_producto_pedido_5 = producto5;
+                        }
+                    }
+                }
+            }
+        }
         public void AltaCeluNuevo(CelularNuevo celu)
         {
             context.CelusNuevos.Add(celu);
