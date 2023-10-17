@@ -23,5 +23,26 @@ namespace Front
             menu.Show();
             this.Hide();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            CatalogoCeluNuevos ccn = new CatalogoCeluNuevos();
+            ccn.Show();
+            this.Hide();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            CatalogoCeluaresUsados ccu = new CatalogoCeluaresUsados();
+            ccu.Show();
+            this.Hide();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            CatalogoNotebooks cn = new CatalogoNotebooks();
+            cn.Show();
+            this.Hide();
+        }
     }
 }

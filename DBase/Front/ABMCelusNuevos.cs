@@ -14,11 +14,6 @@ namespace Front
     public partial class ABMCelusNuevos : Form
     {
         Principal principal = new Principal();
-        /*private void ActualizarGridVie()
-        {
-            dataGridView1.DataSource = null;
-            dataGridView1.DataSource = principal.DevolverListaCelusNuevos();
-        }*/
         public ABMCelusNuevos()
         {
             InitializeComponent();
@@ -26,7 +21,6 @@ namespace Front
 
         private void ABMCelusNuevos_Load(object sender, EventArgs e)
         {
-            //dataGridView1.DataSource = principal.DevolverListaCelusNuevos();
             listBox1.DataSource = null;
             listBox1.DisplayMember = "info_list_box";
             listBox1.DataSource = principal.DevolverListaCelusNuevos();

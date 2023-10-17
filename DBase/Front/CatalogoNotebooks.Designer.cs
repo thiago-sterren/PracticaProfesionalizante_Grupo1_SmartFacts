@@ -28,46 +28,47 @@
         /// </summary>
         private void InitializeComponent()
         {
+            button3 = new Button();
+            button1 = new Button();
             listBox1 = new ListBox();
-            btnVolver = new Button();
-            btnAddCarrito = new Button();
             SuspendLayout();
+            // 
+            // button3
+            // 
+            button3.Location = new Point(1148, 37);
+            button3.Name = "button3";
+            button3.Size = new Size(112, 34);
+            button3.TabIndex = 6;
+            button3.Text = "Volver";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(350, 533);
+            button1.Name = "button1";
+            button1.Size = new Size(137, 89);
+            button1.TabIndex = 5;
+            button1.Text = "Agregar al carrito";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // listBox1
             // 
             listBox1.FormattingEnabled = true;
             listBox1.ItemHeight = 25;
-            listBox1.Location = new Point(31, 41);
+            listBox1.Location = new Point(41, 64);
             listBox1.Name = "listBox1";
-            listBox1.Size = new Size(1076, 504);
-            listBox1.TabIndex = 0;
-            // 
-            // btnVolver
-            // 
-            btnVolver.Location = new Point(1126, 571);
-            btnVolver.Name = "btnVolver";
-            btnVolver.Size = new Size(135, 66);
-            btnVolver.TabIndex = 1;
-            btnVolver.Text = "Volver";
-            btnVolver.UseVisualStyleBackColor = true;
-            // 
-            // btnAddCarrito
-            // 
-            btnAddCarrito.Location = new Point(312, 571);
-            btnAddCarrito.Name = "btnAddCarrito";
-            btnAddCarrito.Size = new Size(135, 66);
-            btnAddCarrito.TabIndex = 2;
-            btnAddCarrito.Text = "Agregar al carrito";
-            btnAddCarrito.UseVisualStyleBackColor = true;
-            btnAddCarrito.Click += btnAddCarrito_Click;
+            listBox1.Size = new Size(870, 404);
+            listBox1.TabIndex = 4;
             // 
             // CatalogoNotebooks
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1301, 658);
-            Controls.Add(btnAddCarrito);
-            Controls.Add(btnVolver);
+            Controls.Add(button3);
+            Controls.Add(button1);
             Controls.Add(listBox1);
             Name = "CatalogoNotebooks";
             Text = "CatalogoNotebooks";
@@ -77,8 +78,8 @@
 
         #endregion
 
+        private Button button3;
+        private Button button1;
         private ListBox listBox1;
-        private Button btnVolver;
-        private Button btnAddCarrito;
     }
 }

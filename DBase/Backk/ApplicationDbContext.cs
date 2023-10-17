@@ -9,12 +9,13 @@ namespace Backk
 {
     public class ApplicationDbContext : DbContext
     {
-        public DbSet<CelularNuevo> CelusNuevos{ get; set; }
+        public DbSet<CelularNuevo> CelusNuevos { get; set; }
         public DbSet<CelularUsado> CelusUsados { get; set; }
         public DbSet<Notebook> Notebooks { get; set; }
         public DbSet<Cliente> Clientes { get; set; }
         public DbSet<Administrador> Admins { get; set; }
         public DbSet<Pedido> Pedidos { get; set; }
+        public DbSet<Producto> Producto { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer("server=LAPTOP-767BTASL;database=Smart_Facts;trusted_connection=true;Encrypt=False");

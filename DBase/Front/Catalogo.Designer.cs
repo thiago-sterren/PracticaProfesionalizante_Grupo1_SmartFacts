@@ -52,6 +52,7 @@
             button2.TabIndex = 1;
             button2.Text = "Celulares nuevos";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // button3
             // 
@@ -61,6 +62,7 @@
             button3.TabIndex = 2;
             button3.Text = "Celulares usados";
             button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
             // 
             // button4
             // 
@@ -70,6 +72,7 @@
             button4.TabIndex = 3;
             button4.Text = "Notebooks";
             button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
             // 
             // Catalogo
             // 

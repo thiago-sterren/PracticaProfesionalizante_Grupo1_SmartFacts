@@ -21,12 +21,26 @@ namespace Front
 
         private void CatalogoNotebooks_Load(object sender, EventArgs e)
         {
-            principal.DevolverListaNotebooks();
+            listBox1.DataSource = null;
+            listBox1.DisplayMember = "info_list_box";
+            listBox1.DataSource = principal.DevolverListaNotebooks();
         }
 
         private void btnAddCarrito_Click(object sender, EventArgs e)
         {
-            
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Catalogo catalogo = new Catalogo();
+            catalogo.Show();
+            this.Hide();
         }
     }
 }
