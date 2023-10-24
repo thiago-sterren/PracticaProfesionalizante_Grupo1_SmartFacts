@@ -14,6 +14,7 @@ namespace Front
     public partial class ABMCelusUsados : Form
     {
         Principal principal = new Principal();
+        ApplicationDbContext context = new ApplicationDbContext();
         public ABMCelusUsados()
         {
             InitializeComponent();
@@ -61,6 +62,48 @@ namespace Front
             ABMProductos aBMProductos = new ABMProductos();
             aBMProductos.Show();
             this.Hide();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            CelularUsado celuSeleccionado = (CelularUsado)listBox1.SelectedItem;
+            if (txtModStock.Text == "" || celuSeleccionado == null || int.Parse(txtModStock.Text) < 0)
+            {
+                MessageBox.Show("Por favor, seleccione un producto e ingrese un valor mayor o igual a cero");
+            }
+            else
+            {
+                if (celuSeleccionado.disponibilidad == Producto.DispStock.Disponible)
+                {
+                    if (int.Parse(txtModStock.Text) == 0)
+                    {
+                        celuSeleccionado.stock = int.Parse(txtModStock.Text);
+                        celuSeleccionado.disponibilidad = Producto.DispStock.NoDisponible;
+                        context.SaveChanges();
+                        MessageBox.Show("Cambio realizado");
+                    }
+                    else
+                    {
+                        celuSeleccionado.stock = int.Parse(txtModStock.Text);
+                        context.SaveChanges();
+                        MessageBox.Show("Cambio realizado");
+                    }
+                }
+                else
+                {
+                    if (int.Parse(txtModStock.Text) > 0)
+                    {
+                        celuSeleccionado.stock = int.Parse(txtModStock.Text);
+                        celuSeleccionado.disponibilidad = Producto.DispStock.Disponible;
+                        context.SaveChanges();
+                        MessageBox.Show("Cambio realizado");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Si quiere cambiar este producto sin stock al tipo de disponibilidad 'disponible', inserte un valor mayor a 0");
+                    }
+                }
+            }
         }
     }
 }

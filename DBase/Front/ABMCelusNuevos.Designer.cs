@@ -45,6 +45,8 @@
             label5 = new Label();
             label6 = new Label();
             button4 = new Button();
+            button5 = new Button();
+            txtModStock = new TextBox();
             SuspendLayout();
             // 
             // listBox1
@@ -194,11 +196,30 @@
             button4.UseVisualStyleBackColor = true;
             button4.Click += button4_Click;
             // 
+            // button5
+            // 
+            button5.Location = new Point(735, 578);
+            button5.Name = "button5";
+            button5.Size = new Size(112, 73);
+            button5.TabIndex = 17;
+            button5.Text = "Cambiar stock";
+            button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
+            // 
+            // txtModStock
+            // 
+            txtModStock.Location = new Point(546, 599);
+            txtModStock.Name = "txtModStock";
+            txtModStock.Size = new Size(150, 31);
+            txtModStock.TabIndex = 18;
+            // 
             // ABMCelusNuevos
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1359, 663);
+            Controls.Add(txtModStock);
+            Controls.Add(button5);
             Controls.Add(button4);
             Controls.Add(label6);
             Controls.Add(label5);
@@ -242,5 +263,7 @@
         private Label label5;
         private Label label6;
         private Button button4;
+        private Button button5;
+        private TextBox txtModStock;
     }
 }

@@ -16,6 +16,7 @@ namespace Backk
         public DbSet<Administrador> Admins { get; set; }
         public DbSet<Pedido> Pedidos { get; set; }
         public DbSet<Producto> Producto { get; set; }
+        public DbSet<PedidoProducto> PedidoProducto { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer("server=LAPTOP-767BTASL;database=Smart_Facts;trusted_connection=true;Encrypt=False");

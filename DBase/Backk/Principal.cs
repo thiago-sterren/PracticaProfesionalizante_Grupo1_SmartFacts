@@ -1,11 +1,12 @@
 ﻿using Backk;
+using Microsoft.EntityFrameworkCore.Metadata.Conventions;
 using Microsoft.Identity.Client;
 
 namespace Backk
 {
     public class Principal
     {
-        ApplicationDbContext context = new ApplicationDbContext(); // instancia de la bd
+        ApplicationDbContext context = new ApplicationDbContext();
         public List<Cliente> DevolverListaClientes()
         {
             return context.Clientes.ToList();
@@ -21,6 +22,10 @@ namespace Backk
         public List<Notebook> DevolverListaNotebooks()
         {
             return context.Notebooks.ToList();
+        }
+        public List<Producto> DevolverListaProductos()
+        {
+            return context.Producto.ToList();
         }
         public void AltaCliente(Cliente cliente)
         {
@@ -54,24 +59,28 @@ namespace Backk
             context.Pedidos.Add(pedido_nuevo);
             context.SaveChanges();
         }
-        public void AgregarProducto(Pedido pedido, Producto producto, Producto producto2, Producto producto3, Producto producto4, Producto producto5)
+        public void AgregarPedido(Pedido pedido)
         {
-            pedido.id_producto_pedido = producto;
-            if (producto2 != null)
+            context.Pedidos.Add(pedido);
+            context.SaveChanges();
+        }
+        public bool AgregarProducto(Pedido pedido, PedidoProducto pedido_producto)
+        {
+            Producto producto_real = pedido_producto.id_producto;
+            if (producto_real.disponibilidad == Producto.DispStock.Disponible)
             {
-                pedido.id_producto_pedido_2 = producto2;
-                if(producto3 != null)
+                producto_real.stock -= 1;
+                if (producto_real.stock == 0)
                 {
-                    pedido.id_producto_pedido_3 = producto3;
-                    if (producto4 != null)
-                    {
-                        pedido.id_producto_pedido_4 = producto4;
-                        if (producto5 != null)
-                        {
-                            pedido.id_producto_pedido_5 = producto5;
-                        }
-                    }
+                    producto_real.disponibilidad = Producto.DispStock.NoDisponible;
                 }
+                pedido.productos.Add(pedido_producto);
+                context.SaveChanges();
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
         public void AltaCeluNuevo(CelularNuevo celu)

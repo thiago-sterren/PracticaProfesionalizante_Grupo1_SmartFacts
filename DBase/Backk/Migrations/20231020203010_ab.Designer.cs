@@ -4,6 +4,7 @@ using Backk;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Backk.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231020203010_ab")]
+    partial class ab
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -118,12 +121,17 @@ namespace Backk.Migrations
                     b.Property<int?>("Pedidoid")
                         .HasColumnType("int");
 
+                    b.Property<int>("id_clienteid")
+                        .HasColumnType("int");
+
                     b.Property<int>("id_productoid")
                         .HasColumnType("int");
 
                     b.HasKey("id");
 
                     b.HasIndex("Pedidoid");
+
+                    b.HasIndex("id_clienteid");
 
                     b.HasIndex("id_productoid");
 
@@ -235,11 +243,19 @@ namespace Backk.Migrations
                         .WithMany("productos")
                         .HasForeignKey("Pedidoid");
 
+                    b.HasOne("Backk.Cliente", "id_cliente")
+                        .WithMany()
+                        .HasForeignKey("id_clienteid")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("Backk.Producto", "id_producto")
                         .WithMany()
                         .HasForeignKey("id_productoid")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("id_cliente");
 
                     b.Navigation("id_producto");
                 });

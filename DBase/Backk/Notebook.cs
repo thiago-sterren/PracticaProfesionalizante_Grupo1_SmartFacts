@@ -19,7 +19,7 @@ namespace Backk
         }
         public string info_list_box
         {
-            get { return $"{marca_producto} {nombre_producto}. ID: {id}. Stock: {stock}. Almacenamiento: {almacenamiento}. Idioma teclado: {idioma_teclado}. Cm de altura: {cm_alto}. Cm de anchura: {cm_ancho}."; }
+            get { return $"{marca_producto} {nombre_producto}. ID: {id}. Disponibilidad: {disponibilidad}. Stock: {stock}. Almacenamiento: {almacenamiento}. Idioma teclado: {idioma_teclado}. Cm de altura: {cm_alto}. Cm de anchura: {cm_ancho}."; }
         }
     }
 }

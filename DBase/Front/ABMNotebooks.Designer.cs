@@ -49,6 +49,8 @@
             button1 = new Button();
             listBox1 = new ListBox();
             button4 = new Button();
+            txtModStock = new TextBox();
+            button5 = new Button();
             SuspendLayout();
             // 
             // label8
@@ -228,11 +230,30 @@
             button4.UseVisualStyleBackColor = true;
             button4.Click += button4_Click;
             // 
+            // txtModStock
+            // 
+            txtModStock.Location = new Point(536, 629);
+            txtModStock.Name = "txtModStock";
+            txtModStock.Size = new Size(150, 31);
+            txtModStock.TabIndex = 57;
+            // 
+            // button5
+            // 
+            button5.Location = new Point(704, 613);
+            button5.Name = "button5";
+            button5.Size = new Size(145, 60);
+            button5.TabIndex = 58;
+            button5.Text = "Cambiar stock";
+            button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
+            // 
             // ABMNotebooks
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1308, 699);
+            Controls.Add(button5);
+            Controls.Add(txtModStock);
             Controls.Add(button4);
             Controls.Add(label8);
             Controls.Add(textBox8);
@@ -284,5 +305,7 @@
         private Button button1;
         private ListBox listBox1;
         private Button button4;
+        private TextBox txtModStock;
+        private Button button5;
     }
 }

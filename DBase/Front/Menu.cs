@@ -28,10 +28,11 @@ namespace Front
             {
                 if (contraseniaIngresada == clienteEncontrado.contrasenia)
                 {
+                    ClienteActual.cliente_actual = clienteEncontrado;
                     Catalogo catalogo = new Catalogo();
                     catalogo.Show();
                     this.Hide();
-                }
+    }
                 else
                 {
                     MessageBox.Show("Datos incorrectos, intente nuevamente");
@@ -42,7 +43,6 @@ namespace Front
                 MessageBox.Show("Datos incorrectos, intente nuevamente");
             }
         }
-
         private void button2_Click(object sender, EventArgs e)
         {
             Registracion registracion = new Registracion();
