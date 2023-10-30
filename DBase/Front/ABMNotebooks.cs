@@ -1,4 +1,5 @@
 ﻿using Backk;
+using Microsoft.EntityFrameworkCore.Diagnostics;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,41 +21,62 @@ namespace Front
             InitializeComponent();
         }
 
+        private void ActualizarDataGrid()
+        {
+            dataGridView1.DataSource = null;
+            dataGridView1.DataSource = principal.DevolverListaNotebooks();
+        }
         private void button1_Click(object sender, EventArgs e)
         {
-            Notebook noteNueva = new Notebook(textBox1.Text, textBox2.Text, int.Parse(textBox3.Text), double.Parse(textBox4.Text), double.Parse(textBox5.Text), textBox6.Text, double.Parse(textBox7.Text), double.Parse(textBox8.Text));
+            Notebook noteNueva = new Notebook(textBox1.Text, textBox2.Text, double.Parse(textBox4.Text), double.Parse(textBox5.Text), textBox6.Text, double.Parse(textBox7.Text), double.Parse(textBox8.Text));
             principal.AltaNotebook(noteNueva);
             MessageBox.Show("Se ha agregado un producto del tipo Notebook");
-            listBox1.DataSource = null;
-            listBox1.DisplayMember = "info_list_box";
-            listBox1.DataSource = principal.DevolverListaNotebooks();
+            ActualizarDataGrid();
+
         }
 
         private void ABMNotebooks_Load(object sender, EventArgs e)
         {
-            listBox1.DataSource = null;
-            listBox1.DisplayMember = "info_list_box";
-            listBox1.DataSource = principal.DevolverListaNotebooks();
+            ActualizarDataGrid();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            principal.BajaNotebook((Notebook)listBox1.SelectedItem);
-            MessageBox.Show("Se ha borrado un producto del tipo Notebook");
-            listBox1.DataSource = null;
-            listBox1.DataSource = principal.DevolverListaNotebooks();
-            listBox1.DisplayMember = "info_list_box";
+            if (dataGridView1.CurrentCell != null)
+            {
+                int celdaSeleccionada = dataGridView1.CurrentCellAddress.Y;
+                Notebook idNotebook = (Notebook)dataGridView1.Rows[celdaSeleccionada].DataBoundItem;
+                principal.BajaNotebook(idNotebook);
+                MessageBox.Show("Se ha borrado un producto del tipo Notebook");
+                ActualizarDataGrid();
+            }
+            else
+            {
+                MessageBox.Show("Seleccione una celda, por favor");
+            }
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Notebook noteSeleccionada = (Notebook)listBox1.SelectedItem;
-            Notebook modificacion = new Notebook(textBox1.Text, textBox2.Text, int.Parse(textBox3.Text), double.Parse(textBox4.Text), double.Parse(textBox5.Text), textBox6.Text, double.Parse(textBox7.Text), double.Parse(textBox8.Text));
-            principal.ModificacionNotebook(noteSeleccionada, modificacion);
-            MessageBox.Show("Se ha modificado un producto del tipo Notebook");
-            listBox1.DataSource = null;
-            listBox1.DisplayMember = "info_list_box";
-            listBox1.DataSource = principal.DevolverListaNotebooks();
+            int celdaSeleccionada = dataGridView1.CurrentCellAddress.Y;
+            Notebook idNotebook = (Notebook)dataGridView1.Rows[celdaSeleccionada].DataBoundItem;
+            if (celdaSeleccionada != null)
+            {
+                idNotebook.marca_producto = textBox1.Text;
+                idNotebook.nombre_producto = textBox2.Text;
+                idNotebook.precio = double.Parse(textBox4.Text);
+                idNotebook.almacenamiento = double.Parse(textBox5.Text);
+                idNotebook.idioma_teclado = textBox6.Text;
+                idNotebook.cm_alto = double.Parse(textBox7.Text);
+                idNotebook.cm_ancho = double.Parse(textBox8.Text);
+                principal.ModNote(idNotebook);
+                MessageBox.Show("Se ha modificado un producto del tipo Notebook");
+                ActualizarDataGrid();
+            }
+            else
+            {
+                MessageBox.Show("Seleccione una celda, por favor");
+            }
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -66,43 +88,18 @@ namespace Front
 
         private void button5_Click(object sender, EventArgs e)
         {
-            Notebook celuSeleccionado = (Notebook)listBox1.SelectedItem;
-            if (txtModStock.Text == "" || celuSeleccionado == null || int.Parse(txtModStock.Text) < 0)
+            int celdaSeleccionada = dataGridView1.CurrentCellAddress.Y;
+            Notebook idNotebook = (Notebook)dataGridView1.Rows[celdaSeleccionada].DataBoundItem;
+            if (txtModStock.Text == "" || celdaSeleccionada == null || int.Parse(txtModStock.Text) < 0)
             {
                 MessageBox.Show("Por favor, seleccione un producto e ingrese un valor mayor o igual a cero");
             }
             else
             {
-                if (celuSeleccionado.disponibilidad == Producto.DispStock.Disponible)
-                {
-                    if (int.Parse(txtModStock.Text) == 0)
-                    {
-                        celuSeleccionado.stock = int.Parse(txtModStock.Text);
-                        celuSeleccionado.disponibilidad = Producto.DispStock.NoDisponible;
-                        context.SaveChanges();
-                        MessageBox.Show("Cambio realizado");
-                    }
-                    else
-                    {
-                        celuSeleccionado.stock = int.Parse(txtModStock.Text);
-                        context.SaveChanges();
-                        MessageBox.Show("Cambio realizado");
-                    }
-                }
-                else
-                {
-                    if (int.Parse(txtModStock.Text) > 0)
-                    {
-                        celuSeleccionado.stock = int.Parse(txtModStock.Text);
-                        celuSeleccionado.disponibilidad = Producto.DispStock.Disponible;
-                        context.SaveChanges();
-                        MessageBox.Show("Cambio realizado");
-                    }
-                    else
-                    {
-                        MessageBox.Show("Si quiere cambiar este producto sin stock al tipo de disponibilidad 'disponible', inserte un valor mayor a 0");
-                    }
-                }
+                principal.ModStock(idNotebook, int.Parse(txtModStock.Text));
+                context.SaveChanges();
+                MessageBox.Show("Cambio realizado");
+                ActualizarDataGrid();
             }
         }
     }

@@ -22,9 +22,5 @@ namespace Backk
             this.contrasenia = contrasenia;
             this.usuario = usuario;
         }
-        public string info_list_box
-        {
-            get { return $"{nombre} {apellido}. ID: {id}. Usuario: {usuario}. Contraseña: {contrasenia}."; }
-        }
     }
 }

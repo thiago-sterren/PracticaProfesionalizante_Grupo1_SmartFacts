@@ -9,13 +9,9 @@ namespace Backk
     public class CelularNuevo : Producto
     {
         public string garantia { get; set; }
-        public CelularNuevo(string marca_producto, string nombre_producto, int stock, double precio, double almacenamiento, string garantia) : base(marca_producto, nombre_producto, stock, precio, almacenamiento)
+        public CelularNuevo(string marca_producto, string nombre_producto, double precio, double almacenamiento, string garantia) : base(marca_producto, nombre_producto, precio, almacenamiento)
         {
             this.garantia = garantia;
-        }
-        public string info_list_box
-        {
-            get { return $"{marca_producto} {nombre_producto}. ID: {id}. Disponibilidad: {disponibilidad}. Stock: {stock}. Almacenamiento: {almacenamiento}. Garantía: {garantia}."; }
         }
     }
 }

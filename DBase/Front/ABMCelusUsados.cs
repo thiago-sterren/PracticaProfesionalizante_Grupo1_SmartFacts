@@ -20,41 +20,62 @@ namespace Front
             InitializeComponent();
         }
 
+        private void ActualizarDataGrid()
+        {
+            dataGridView1.DataSource = null;
+            dataGridView1.DataSource = principal.DevolverListaCelusUsados();
+        }
+
         private void ABMCelusUsados_Load(object sender, EventArgs e)
         {
-            listBox1.DataSource = null;
-            listBox1.DisplayMember = "info_list_box";
-            listBox1.DataSource = principal.DevolverListaCelusUsados();
+            ActualizarDataGrid();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            CelularUsado celuUsado = new CelularUsado(textBox1.Text, textBox2.Text, int.Parse(textBox3.Text), double.Parse(textBox4.Text), double.Parse(textBox5.Text), textBox6.Text, textBox7.Text, textBox8.Text);
+            CelularUsado celuUsado = new CelularUsado(textBox1.Text, textBox2.Text, double.Parse(textBox4.Text), double.Parse(textBox5.Text), textBox6.Text, textBox7.Text, textBox8.Text);
             principal.AltaCeluUsado(celuUsado);
             MessageBox.Show("Se ha agregado un producto del tipo Celular Usado");
-            listBox1.DataSource = null;
-            listBox1.DisplayMember = "info_list_box";
-            listBox1.DataSource = principal.DevolverListaCelusUsados();
+            ActualizarDataGrid();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            principal.BajaCeluUsado((CelularUsado)listBox1.SelectedItem);
-            MessageBox.Show("Se ha borrado un producto del tipo Celular Usado");
-            listBox1.DataSource = null;
-            listBox1.DataSource = principal.DevolverListaCelusUsados();
-            listBox1.DisplayMember = "info_list_box";
+            if (dataGridView1.CurrentCell != null)
+            {
+                int celdaSeleccionada = dataGridView1.CurrentCellAddress.Y;
+                CelularUsado idCelu = (CelularUsado)dataGridView1.Rows[celdaSeleccionada].DataBoundItem;
+                principal.BajaCeluUsado(idCelu);
+                MessageBox.Show("Se ha borrado un producto del tipo Celular Usado");
+                ActualizarDataGrid();
+            }
+            else
+            {
+                MessageBox.Show("Seleccione una celda, por favor");
+            }
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            CelularUsado celuSeleccionado = (CelularUsado)listBox1.SelectedItem;
-            CelularUsado modificacion = new CelularUsado(textBox1.Text, textBox2.Text, int.Parse(textBox3.Text), double.Parse(textBox4.Text), double.Parse(textBox5.Text), textBox6.Text, textBox7.Text, textBox8.Text);
-            principal.ModificacionCeluUsado(celuSeleccionado, modificacion);
-            MessageBox.Show("Se ha modificado un producto del tipo Celular Usado");
-            listBox1.DataSource = null;
-            listBox1.DisplayMember = "info_list_box";
-            listBox1.DataSource = principal.DevolverListaCelusUsados();
+            int celdaSeleccionada = dataGridView1.CurrentCellAddress.Y;
+            CelularUsado idCelu = (CelularUsado)dataGridView1.Rows[celdaSeleccionada].DataBoundItem;
+            if (celdaSeleccionada != null)
+            {
+                idCelu.marca_producto = textBox1.Text;
+                idCelu.nombre_producto = textBox2.Text;
+                idCelu.precio = double.Parse(textBox4.Text);
+                idCelu.almacenamiento = double.Parse(textBox5.Text);
+                idCelu.detalles = textBox6.Text;
+                idCelu.uso = textBox7.Text;
+                idCelu.condicion_bat = textBox8.Text;
+                principal.ModificacionCeluUsado(idCelu);
+                MessageBox.Show("Se ha modificado un producto del tipo Celular Usado");
+                ActualizarDataGrid();
+            }
+            else
+            {
+                MessageBox.Show("Seleccione una celda, por favor");
+            }
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -66,43 +87,18 @@ namespace Front
 
         private void button5_Click(object sender, EventArgs e)
         {
-            CelularUsado celuSeleccionado = (CelularUsado)listBox1.SelectedItem;
-            if (txtModStock.Text == "" || celuSeleccionado == null || int.Parse(txtModStock.Text) < 0)
+            int celdaSeleccionada = dataGridView1.CurrentCellAddress.Y;
+            CelularUsado idCelu = (CelularUsado)dataGridView1.Rows[celdaSeleccionada].DataBoundItem;
+            if (txtModStock.Text == "" || celdaSeleccionada == null || int.Parse(txtModStock.Text) < 0)
             {
                 MessageBox.Show("Por favor, seleccione un producto e ingrese un valor mayor o igual a cero");
             }
             else
             {
-                if (celuSeleccionado.disponibilidad == Producto.DispStock.Disponible)
-                {
-                    if (int.Parse(txtModStock.Text) == 0)
-                    {
-                        celuSeleccionado.stock = int.Parse(txtModStock.Text);
-                        celuSeleccionado.disponibilidad = Producto.DispStock.NoDisponible;
-                        context.SaveChanges();
-                        MessageBox.Show("Cambio realizado");
-                    }
-                    else
-                    {
-                        celuSeleccionado.stock = int.Parse(txtModStock.Text);
-                        context.SaveChanges();
-                        MessageBox.Show("Cambio realizado");
-                    }
-                }
-                else
-                {
-                    if (int.Parse(txtModStock.Text) > 0)
-                    {
-                        celuSeleccionado.stock = int.Parse(txtModStock.Text);
-                        celuSeleccionado.disponibilidad = Producto.DispStock.Disponible;
-                        context.SaveChanges();
-                        MessageBox.Show("Cambio realizado");
-                    }
-                    else
-                    {
-                        MessageBox.Show("Si quiere cambiar este producto sin stock al tipo de disponibilidad 'disponible', inserte un valor mayor a 0");
-                    }
-                }
+                principal.ModStock(idCelu, int.Parse(txtModStock.Text));
+                context.SaveChanges();
+                MessageBox.Show("Cambio realizado");
+                ActualizarDataGrid();
             }
         }
     }

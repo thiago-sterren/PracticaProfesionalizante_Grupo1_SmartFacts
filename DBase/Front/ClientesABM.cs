@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Front
 {
@@ -18,6 +19,12 @@ namespace Front
         public ClientesABM()
         {
             InitializeComponent();
+        }
+
+        private void ActualizarDataGrid()
+        {
+            dataGridView1.DataSource = null;
+            dataGridView1.DataSource = principal.DevolverListaClientes();
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -32,36 +39,48 @@ namespace Front
             Cliente cliente = new Cliente(txtNombre.Text, txtApellido.Text, txtContrasenia.Text, txtUsuario.Text);
             principal.AltaCliente(cliente);
             MessageBox.Show("Se ha agregado el cliente con éxito");
-            listBox1.DataSource = null;
-            listBox1.DisplayMember = "info_list_box";
-            listBox1.DataSource = principal.DevolverListaClientes();
+            ActualizarDataGrid();
         }
 
         private void ClientesABM_Load(object sender, EventArgs e)
         {
-            listBox1.DataSource = null;
-            listBox1.DisplayMember = "info_list_box";
-            listBox1.DataSource = principal.DevolverListaClientes();
+            ActualizarDataGrid();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            principal.BajaCliente((Cliente)listBox1.SelectedItem);
-            MessageBox.Show("Se ha eliminado el cliente con éxito");
-            listBox1.DataSource = null;
-            listBox1.DataSource = principal.DevolverListaClientes();
-            listBox1.DisplayMember = "info_list_box";
+            if (dataGridView1.CurrentCell != null)
+            {
+                int celdaSeleccionada = dataGridView1.CurrentCellAddress.Y;
+                Cliente idCliente = (Cliente)dataGridView1.Rows[celdaSeleccionada].DataBoundItem;
+                principal.BajaCliente(idCliente);
+                MessageBox.Show("Se ha borrado un Cliente");
+                ActualizarDataGrid();
+            }
+            else
+            {
+                MessageBox.Show("Seleccione una celda, por favor");
+            }
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Cliente cliente_remove = (Cliente)listBox1.SelectedItem;
-            Cliente cliente_add = new Cliente(txtNombre.Text, txtApellido.Text, txtContrasenia.Text, txtUsuario.Text);
-            principal.ModificacionCliente(cliente_remove, cliente_add);
-            MessageBox.Show("Se ha modificado el cliente con éxito");
-            listBox1.DataSource = null;
-            listBox1.DisplayMember = "info_list_box";
-            listBox1.DataSource = principal.DevolverListaClientes();
+            int celdaSeleccionada = dataGridView1.CurrentCellAddress.Y;
+            Cliente idCliente = (Cliente)dataGridView1.Rows[celdaSeleccionada].DataBoundItem;
+            if (celdaSeleccionada != null)
+            {
+                idCliente.nombre = txtNombre.Text;
+                idCliente.apellido = txtApellido.Text;
+                idCliente.contrasenia = txtContrasenia.Text;
+                idCliente.usuario = txtUsuario.Text;
+                principal.ModificacionCliente(idCliente);
+                MessageBox.Show("Se ha modificado un Cliente");
+                ActualizarDataGrid();
+            }
+            else
+            {
+                MessageBox.Show("Seleccione una celda, por favor");
+            }
         }
     }
 }

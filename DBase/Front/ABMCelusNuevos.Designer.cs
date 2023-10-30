@@ -28,36 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            listBox1 = new ListBox();
             button1 = new Button();
             button2 = new Button();
             button3 = new Button();
             textBox1 = new TextBox();
             textBox2 = new TextBox();
-            textBox3 = new TextBox();
             textBox4 = new TextBox();
             textBox5 = new TextBox();
             textBox6 = new TextBox();
             label1 = new Label();
             label2 = new Label();
-            label3 = new Label();
             label4 = new Label();
             label5 = new Label();
             label6 = new Label();
             button4 = new Button();
             button5 = new Button();
             txtModStock = new TextBox();
+            dataGridView1 = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
-            // 
-            // listBox1
-            // 
-            listBox1.FormattingEnabled = true;
-            listBox1.ItemHeight = 25;
-            listBox1.Location = new Point(73, 35);
-            listBox1.Name = "listBox1";
-            listBox1.Size = new Size(828, 404);
-            listBox1.TabIndex = 0;
-            listBox1.SelectedIndexChanged += listBox1_SelectedIndexChanged;
             // 
             // button1
             // 
@@ -103,30 +92,23 @@
             textBox2.Size = new Size(150, 31);
             textBox2.TabIndex = 5;
             // 
-            // textBox3
-            // 
-            textBox3.Location = new Point(1117, 150);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(150, 31);
-            textBox3.TabIndex = 6;
-            // 
             // textBox4
             // 
-            textBox4.Location = new Point(1117, 206);
+            textBox4.Location = new Point(1117, 149);
             textBox4.Name = "textBox4";
             textBox4.Size = new Size(150, 31);
             textBox4.TabIndex = 7;
             // 
             // textBox5
             // 
-            textBox5.Location = new Point(1117, 268);
+            textBox5.Location = new Point(1117, 211);
             textBox5.Name = "textBox5";
             textBox5.Size = new Size(150, 31);
             textBox5.TabIndex = 8;
             // 
             // textBox6
             // 
-            textBox6.Location = new Point(1117, 328);
+            textBox6.Location = new Point(1117, 271);
             textBox6.Name = "textBox6";
             textBox6.Size = new Size(150, 31);
             textBox6.TabIndex = 9;
@@ -149,19 +131,10 @@
             label2.TabIndex = 11;
             label2.Text = "Nombre:";
             // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(1052, 156);
-            label3.Name = "label3";
-            label3.Size = new Size(59, 25);
-            label3.TabIndex = 12;
-            label3.Text = "Stock:";
-            // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(1047, 212);
+            label4.Location = new Point(1047, 155);
             label4.Name = "label4";
             label4.Size = new Size(64, 25);
             label4.TabIndex = 13;
@@ -170,7 +143,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(962, 271);
+            label5.Location = new Point(962, 214);
             label5.Name = "label5";
             label5.Size = new Size(149, 25);
             label5.TabIndex = 14;
@@ -179,7 +152,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(1030, 328);
+            label6.Location = new Point(1030, 271);
             label6.Name = "label6";
             label6.Size = new Size(81, 25);
             label6.TabIndex = 15;
@@ -213,57 +186,63 @@
             txtModStock.Size = new Size(150, 31);
             txtModStock.TabIndex = 18;
             // 
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(46, 58);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersWidth = 62;
+            dataGridView1.RowTemplate.Height = 33;
+            dataGridView1.Size = new Size(873, 396);
+            dataGridView1.TabIndex = 19;
+            // 
             // ABMCelusNuevos
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1359, 663);
+            Controls.Add(dataGridView1);
             Controls.Add(txtModStock);
             Controls.Add(button5);
             Controls.Add(button4);
             Controls.Add(label6);
             Controls.Add(label5);
             Controls.Add(label4);
-            Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(textBox6);
             Controls.Add(textBox5);
             Controls.Add(textBox4);
-            Controls.Add(textBox3);
             Controls.Add(textBox2);
             Controls.Add(textBox1);
             Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(button1);
-            Controls.Add(listBox1);
             Name = "ABMCelusNuevos";
             Text = "ABMCelusNuevos";
             Load += ABMCelusNuevos_Load;
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private ListBox listBox1;
         private Button button1;
         private Button button2;
         private Button button3;
         private TextBox textBox1;
         private TextBox textBox2;
-        private TextBox textBox3;
         private TextBox textBox4;
         private TextBox textBox5;
         private TextBox textBox6;
         private Label label1;
         private Label label2;
-        private Label label3;
         private Label label4;
         private Label label5;
         private Label label6;
         private Button button4;
         private Button button5;
         private TextBox txtModStock;
+        private DataGridView dataGridView1;
     }
 }

@@ -40,7 +40,8 @@
             button2 = new Button();
             button3 = new Button();
             button4 = new Button();
-            listBox1 = new ListBox();
+            dataGridView1 = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // label4
@@ -147,21 +148,22 @@
             button4.UseVisualStyleBackColor = true;
             button4.Click += button4_Click;
             // 
-            // listBox1
+            // dataGridView1
             // 
-            listBox1.FormattingEnabled = true;
-            listBox1.ItemHeight = 25;
-            listBox1.Location = new Point(362, 39);
-            listBox1.Name = "listBox1";
-            listBox1.Size = new Size(687, 354);
-            listBox1.TabIndex = 22;
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(347, 27);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersWidth = 62;
+            dataGridView1.RowTemplate.Height = 33;
+            dataGridView1.Size = new Size(717, 383);
+            dataGridView1.TabIndex = 22;
             // 
             // ClientesABM
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1109, 582);
-            Controls.Add(listBox1);
+            Controls.Add(dataGridView1);
             Controls.Add(button4);
             Controls.Add(button3);
             Controls.Add(button2);
@@ -177,6 +179,7 @@
             Name = "ClientesABM";
             Text = "ClientesABM";
             Load += ClientesABM_Load;
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -195,6 +198,6 @@
         private Button button2;
         private Button button3;
         private Button button4;
-        private ListBox listBox1;
+        private DataGridView dataGridView1;
     }
 }

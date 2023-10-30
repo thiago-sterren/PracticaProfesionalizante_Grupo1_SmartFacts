@@ -32,9 +32,11 @@
             button2 = new Button();
             button3 = new Button();
             button4 = new Button();
-            listBox1 = new ListBox();
             button5 = new Button();
             button6 = new Button();
+            dataGridView1 = new DataGridView();
+            label1 = new Label();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // button1
@@ -77,15 +79,6 @@
             button4.UseVisualStyleBackColor = true;
             button4.Click += button4_Click;
             // 
-            // listBox1
-            // 
-            listBox1.FormattingEnabled = true;
-            listBox1.ItemHeight = 25;
-            listBox1.Location = new Point(317, 177);
-            listBox1.Name = "listBox1";
-            listBox1.Size = new Size(669, 379);
-            listBox1.TabIndex = 4;
-            // 
             // button5
             // 
             button5.Location = new Point(409, 581);
@@ -106,14 +99,33 @@
             button6.UseVisualStyleBackColor = true;
             button6.Click += button6_Click;
             // 
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(274, 160);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersWidth = 62;
+            dataGridView1.RowTemplate.Height = 33;
+            dataGridView1.Size = new Size(740, 366);
+            dataGridView1.TabIndex = 7;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(598, 117);
+            label1.Name = "label1";
+            label1.Size = new Size(0, 25);
+            label1.TabIndex = 8;
+            // 
             // Catalogo
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1368, 721);
+            Controls.Add(label1);
+            Controls.Add(dataGridView1);
             Controls.Add(button6);
             Controls.Add(button5);
-            Controls.Add(listBox1);
             Controls.Add(button4);
             Controls.Add(button3);
             Controls.Add(button2);
@@ -121,7 +133,9 @@
             Name = "Catalogo";
             Text = "Catalogo";
             Load += Catalogo_Load;
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -130,8 +144,9 @@
         private Button button2;
         private Button button3;
         private Button button4;
-        private ListBox listBox1;
         private Button button5;
         private Button button6;
+        private DataGridView dataGridView1;
+        private Label label1;
     }
 }

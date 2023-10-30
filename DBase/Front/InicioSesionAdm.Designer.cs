@@ -118,6 +118,7 @@
             Controls.Add(button1);
             Name = "InicioSesionAdm";
             Text = "InicioSesionAdm";
+            Load += InicioSesionAdm_Load;
             ResumeLayout(false);
             PerformLayout();
         }

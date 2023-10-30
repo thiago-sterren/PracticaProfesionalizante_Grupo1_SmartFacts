@@ -7,8 +7,8 @@ using Backk;
 
 namespace Front
 {
-    public static class ClienteActual
+    public class ClienteActual
     {
-        public static Cliente? cliente_actual { get; set; }
+        public static Cliente cliente_actual { get; set; }
     }
 }

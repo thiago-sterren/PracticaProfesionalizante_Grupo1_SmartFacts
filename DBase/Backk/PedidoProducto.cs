@@ -9,6 +9,6 @@ namespace Backk
     public class PedidoProducto
     {
         public int id { get; set; }
-        public Producto id_producto { get; set; }
+        public Producto producto { get; set; }
     }
 }

@@ -32,7 +32,7 @@ namespace Front
                     Catalogo catalogo = new Catalogo();
                     catalogo.Show();
                     this.Hide();
-    }
+                }
                 else
                 {
                     MessageBox.Show("Datos incorrectos, intente nuevamente");
@@ -55,6 +55,11 @@ namespace Front
             InicioSesionAdm isadm = new InicioSesionAdm();
             isadm.Show();
             this.Hide();
+        }
+
+        private void Menu_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

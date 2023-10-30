@@ -94,15 +94,15 @@ namespace Backk.Migrations
                     b.Property<int>("cantidad_productos")
                         .HasColumnType("int");
 
+                    b.Property<int>("cliente_pedidoid")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("fecha_pedido")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("id_cliente_pedidoid")
-                        .HasColumnType("int");
-
                     b.HasKey("id");
 
-                    b.HasIndex("id_cliente_pedidoid");
+                    b.HasIndex("cliente_pedidoid");
 
                     b.ToTable("Pedidos");
                 });
@@ -118,14 +118,14 @@ namespace Backk.Migrations
                     b.Property<int?>("Pedidoid")
                         .HasColumnType("int");
 
-                    b.Property<int>("id_productoid")
+                    b.Property<int>("productoid")
                         .HasColumnType("int");
 
                     b.HasKey("id");
 
                     b.HasIndex("Pedidoid");
 
-                    b.HasIndex("id_productoid");
+                    b.HasIndex("productoid");
 
                     b.ToTable("PedidoProducto");
                 });
@@ -220,13 +220,13 @@ namespace Backk.Migrations
 
             modelBuilder.Entity("Backk.Pedido", b =>
                 {
-                    b.HasOne("Backk.Cliente", "id_cliente_pedido")
+                    b.HasOne("Backk.Cliente", "cliente_pedido")
                         .WithMany()
-                        .HasForeignKey("id_cliente_pedidoid")
+                        .HasForeignKey("cliente_pedidoid")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("id_cliente_pedido");
+                    b.Navigation("cliente_pedido");
                 });
 
             modelBuilder.Entity("Backk.PedidoProducto", b =>
@@ -235,13 +235,13 @@ namespace Backk.Migrations
                         .WithMany("productos")
                         .HasForeignKey("Pedidoid");
 
-                    b.HasOne("Backk.Producto", "id_producto")
+                    b.HasOne("Backk.Producto", "producto")
                         .WithMany()
-                        .HasForeignKey("id_productoid")
+                        .HasForeignKey("productoid")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("id_producto");
+                    b.Navigation("producto");
                 });
 
             modelBuilder.Entity("Backk.Pedido", b =>
