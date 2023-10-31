@@ -1,5 +1,6 @@
 ﻿using Backk;
 using Microsoft.EntityFrameworkCore.Metadata.Conventions;
+using Microsoft.Identity.Client.Extensibility;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,6 +17,7 @@ namespace Front
     {
         Principal principal = new Principal();
         List<PedidoProducto> lista = new List<PedidoProducto>();
+        ApplicationDbContext context = new ApplicationDbContext();
         public Catalogo()
         {
             InitializeComponent();
@@ -103,12 +105,18 @@ namespace Front
                 pedido.fecha_pedido = DateTime.Now;
                 pedido.productos = lista;
                 pedido.cantidad_productos = pedido.productos.Count();
-                pedido.cliente_pedido = ClienteActual.cliente_actual;
-                principal.AltaPedido(pedido);
-                MessageBox.Show("¡Muchas gracias por su compra! Diríjase a la caja para acordar el método de pago con nuestro cajero y así recibir su pedido");
-                Menu menu = new Menu();
-                menu.Show();
-                this.Close();
+                Cliente cliente_del_pedido = ClienteActual.cliente_actual;
+                Cliente? clienteEncontrado = context.Clientes.FirstOrDefault(c => c.id == cliente_del_pedido.id);
+                // acordarse de que falta migrar para que los pedidos tengan asignado cliente (que es lo que da error), como esta el codigo actual, no da error
+                if (clienteEncontrado != null)
+                {
+                    pedido.cliente_pedido = clienteEncontrado;
+                    principal.AltaPedido(pedido);
+                    MessageBox.Show("¡Muchas gracias por su compra! Diríjase a la caja para acordar el método de pago con nuestro cajero y así recibir su pedido");
+                    Menu menu = new Menu();
+                    menu.Show();
+                    this.Close();
+                }
             }
             else if (resultado == DialogResult.No)
             {
