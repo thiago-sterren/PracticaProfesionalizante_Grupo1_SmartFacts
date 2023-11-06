@@ -12,7 +12,7 @@ namespace Backk
         public int id { get; set; }
         public DateTime fecha_pedido { get; set; }
         public int cantidad_productos { get; set; }
-        public Cliente cliente_pedido { get; set; }
         public List<PedidoProducto>? productos { get; set; }
+        public Cliente cliente { get; set; }
     }
 }

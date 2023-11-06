@@ -1,4 +1,5 @@
 ﻿using Backk;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Conventions;
 using Microsoft.Identity.Client;
 
@@ -9,7 +10,7 @@ namespace Backk
         ApplicationDbContext context = new ApplicationDbContext();
         public List<Cliente> DevolverListaClientes()
         {
-            return context.Clientes.ToList();
+            return context.Clients.ToList();
         }
         public List<CelularNuevo> DevolverListaCelusNuevos()
         {
@@ -65,21 +66,21 @@ namespace Backk
         }
         public void AltaCliente(Cliente cliente)
         {
-            context.Clientes.Add(cliente);
+            context.Clients.Add(cliente);
             context.SaveChanges();
         }
         public void BajaCliente(Cliente cliente)
         {
-            var clienteBuscado = context.Clientes.Find(cliente.id);
+            var clienteBuscado = context.Clients.Find(cliente.id);
             if (clienteBuscado != null)
             {
-                context.Clientes.Remove(cliente);
+                context.Clients.Remove(cliente);
                 context.SaveChanges();
             }
         }
         public void ModificacionCliente(Cliente clienteMod)
         {
-            var clienteBuscado = context.Clientes.Find(clienteMod.id);
+            var clienteBuscado = context.Clients.Find(clienteMod.id);
             if (clienteBuscado != null)
             {
                 clienteBuscado.nombre = clienteMod.nombre;

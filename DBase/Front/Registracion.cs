@@ -36,7 +36,7 @@ namespace Front
         private void button2_Click(object sender, EventArgs e)
         {
             string usuarioIngresado = txtUsuario.Text;
-            Cliente? usuarioEncontrado = context.Clientes.FirstOrDefault(c => c.usuario == usuarioIngresado);
+            Cliente? usuarioEncontrado = context.Clients.FirstOrDefault(c => c.usuario == usuarioIngresado);
             if (usuarioEncontrado == null)
             {
                 Cliente cliente = new Cliente(txtNombre.Text, txtApellido.Text, txtContrasenia.Text, txtUsuario.Text);

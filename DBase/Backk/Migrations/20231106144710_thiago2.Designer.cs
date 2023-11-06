@@ -4,6 +4,7 @@ using Backk;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Backk.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231106144710_thiago2")]
+    partial class thiago2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -80,7 +83,7 @@ namespace Backk.Migrations
 
                     b.HasKey("id");
 
-                    b.ToTable("Clients");
+                    b.ToTable("Clientes");
                 });
 
             modelBuilder.Entity("Backk.Pedido", b =>
@@ -94,7 +97,7 @@ namespace Backk.Migrations
                     b.Property<int>("cantidad_productos")
                         .HasColumnType("int");
 
-                    b.Property<int>("clienteid")
+                    b.Property<int?>("cliente_pedidoid")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("fecha_pedido")
@@ -102,7 +105,7 @@ namespace Backk.Migrations
 
                     b.HasKey("id");
 
-                    b.HasIndex("clienteid");
+                    b.HasIndex("cliente_pedidoid");
 
                     b.ToTable("Pedidos");
                 });
@@ -220,13 +223,11 @@ namespace Backk.Migrations
 
             modelBuilder.Entity("Backk.Pedido", b =>
                 {
-                    b.HasOne("Backk.Cliente", "cliente")
+                    b.HasOne("Backk.Cliente", "cliente_pedido")
                         .WithMany()
-                        .HasForeignKey("clienteid")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("cliente_pedidoid");
 
-                    b.Navigation("cliente");
+                    b.Navigation("cliente_pedido");
                 });
 
             modelBuilder.Entity("Backk.PedidoProducto", b =>

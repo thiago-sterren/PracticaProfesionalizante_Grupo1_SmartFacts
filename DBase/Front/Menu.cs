@@ -13,6 +13,7 @@ namespace Front
 {
     public partial class Menu : Form
     {
+        Principal principal = new Principal();
         ApplicationDbContext context = new ApplicationDbContext();
         public Menu()
         {
@@ -23,7 +24,7 @@ namespace Front
         {
             string usuarioIngresado = textBox1.Text;
             string contraseniaIngresada = textBox2.Text;
-            Cliente? clienteEncontrado = context.Clientes.FirstOrDefault(c => c.usuario == usuarioIngresado);
+            Cliente? clienteEncontrado = context.Clients.FirstOrDefault(c => c.usuario == usuarioIngresado);
             if (clienteEncontrado != null)
             {
                 if (contraseniaIngresada == clienteEncontrado.contrasenia)
