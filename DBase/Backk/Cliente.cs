@@ -1,6 +1,7 @@
 ﻿using Microsoft.Identity.Client;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Net;
@@ -11,8 +12,8 @@ namespace Backk
 {
     public class Cliente
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int id { get; set; }
+        [Key]
+        public int idCliente { get; set; }
         public string nombre { get; set; }
         public string apellido { get; set; }
         public string contrasenia { get; set; }

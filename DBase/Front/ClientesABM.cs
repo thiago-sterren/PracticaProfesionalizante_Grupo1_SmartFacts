@@ -36,10 +36,17 @@ namespace Front
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Cliente cliente = new Cliente(txtNombre.Text, txtApellido.Text, txtContrasenia.Text, txtUsuario.Text);
-            principal.AltaCliente(cliente);
-            MessageBox.Show("Se ha agregado el cliente con éxito");
-            ActualizarDataGrid();
+            if (txtNombre.Text != "" && txtApellido.Text != "" && txtUsuario.Text != "" && txtContrasenia.Text != "")
+            {
+                Cliente cliente = new Cliente(txtNombre.Text, txtApellido.Text, txtContrasenia.Text, txtUsuario.Text);
+                principal.AltaCliente(cliente);
+                MessageBox.Show("Se ha agregado el cliente con éxito");
+                ActualizarDataGrid();
+            }
+            else
+            {
+                MessageBox.Show("Complete todos los campos, por favor");
+            }
         }
 
         private void ClientesABM_Load(object sender, EventArgs e)
@@ -65,21 +72,28 @@ namespace Front
 
         private void button3_Click(object sender, EventArgs e)
         {
-            int celdaSeleccionada = dataGridView1.CurrentCellAddress.Y;
-            Cliente idCliente = (Cliente)dataGridView1.Rows[celdaSeleccionada].DataBoundItem;
-            if (celdaSeleccionada != null)
+            if (txtNombre.Text != "" && txtApellido.Text != "" && txtUsuario.Text != "" && txtContrasenia.Text != "")
             {
-                idCliente.nombre = txtNombre.Text;
-                idCliente.apellido = txtApellido.Text;
-                idCliente.contrasenia = txtContrasenia.Text;
-                idCliente.usuario = txtUsuario.Text;
-                principal.ModificacionCliente(idCliente);
-                MessageBox.Show("Se ha modificado un Cliente");
-                ActualizarDataGrid();
+                int celdaSeleccionada = dataGridView1.CurrentCellAddress.Y;
+                Cliente idCliente = (Cliente)dataGridView1.Rows[celdaSeleccionada].DataBoundItem;
+                if (celdaSeleccionada != null)
+                {
+                    idCliente.nombre = txtNombre.Text;
+                    idCliente.apellido = txtApellido.Text;
+                    idCliente.contrasenia = txtContrasenia.Text;
+                    idCliente.usuario = txtUsuario.Text;
+                    principal.ModificacionCliente(idCliente);
+                    MessageBox.Show("Se ha modificado un Cliente");
+                    ActualizarDataGrid();
+                }
+                else
+                {
+                    MessageBox.Show("Seleccione una celda, por favor");
+                }
             }
             else
             {
-                MessageBox.Show("Seleccione una celda, por favor");
+                MessageBox.Show("Complete todos los campos, por favor");
             }
         }
     }

@@ -18,7 +18,7 @@ namespace Backk
         public DbSet<Cliente> Clients { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("server=LAPTOP-767BTASL;database=SmartFacts;trusted_connection=true;Encrypt=False");
+            optionsBuilder.UseSqlServer("server=LAPTOP-767BTASL;database=SmartFacts3;trusted_connection=true;Encrypt=False");
         }
     }
 }

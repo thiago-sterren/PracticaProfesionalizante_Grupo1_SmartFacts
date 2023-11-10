@@ -39,10 +39,28 @@ namespace Front
 
         private void button1_Click(object sender, EventArgs e)
         {
-            CelularNuevo celuNuevo = new CelularNuevo(textBox1.Text, textBox2.Text, double.Parse(textBox4.Text), double.Parse(textBox5.Text), textBox6.Text);
-            principal.AltaCeluNuevo(celuNuevo);
-            MessageBox.Show("Se ha agregado un producto del tipo Celular Nuevo");
-            ActualizarDataGrid();
+            if (textBox1.Text != "" && textBox2.Text != "" && textBox4.Text != "" && textBox5.Text != "" && textBox6.Text != "")
+            {
+                string txtPrecio = textBox4.Text;
+                double numeroPrecio;
+                string txtAlmacenamiento = textBox5.Text;
+                double numeroAlmacenamiento;
+                if (double.TryParse(txtPrecio, out numeroPrecio) && double.TryParse(txtAlmacenamiento, out numeroAlmacenamiento))
+                {
+                    CelularNuevo celuNuevo = new CelularNuevo(textBox1.Text, textBox2.Text, double.Parse(textBox4.Text), double.Parse(textBox5.Text), textBox6.Text);
+                    principal.AltaCeluNuevo(celuNuevo);
+                    MessageBox.Show("Se ha agregado un producto del tipo Celular Nuevo");
+                    ActualizarDataGrid();
+                }
+                else
+                {
+                    MessageBox.Show("Los datos de la casilla de precio o almacenamiento fueron ingresados en un formato que no corresponde, inténtelo de nuevo");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Complete todos los campos, por favor");
+            }
         }
 
         private void label6_Click(object sender, EventArgs e)
@@ -68,22 +86,40 @@ namespace Front
 
         private void button3_Click(object sender, EventArgs e)
         {
-            int celdaSeleccionada = dataGridView1.CurrentCellAddress.Y;
-            CelularNuevo idCelu = (CelularNuevo)dataGridView1.Rows[celdaSeleccionada].DataBoundItem;
-            if (celdaSeleccionada != null)
+            if (textBox1.Text != "" && textBox2.Text != "" && textBox4.Text != "" && textBox5.Text != "" && textBox6.Text != "")
             {
-                idCelu.marca_producto = textBox1.Text;
-                idCelu.nombre_producto = textBox2.Text;
-                idCelu.precio = double.Parse(textBox4.Text);
-                idCelu.almacenamiento = double.Parse(textBox5.Text);
-                idCelu.garantia = textBox6.Text;
-                principal.ModificacionCeluNuevo(idCelu);
-                MessageBox.Show("Se ha modificado un producto del tipo Celular Nuevo");
-                ActualizarDataGrid();
+                string txtPrecio = textBox4.Text;
+                double numeroPrecio;
+                string txtAlmacenamiento = textBox5.Text;
+                double numeroAlmacenamiento;
+                if (double.TryParse(txtPrecio, out numeroPrecio) && double.TryParse(txtAlmacenamiento, out numeroAlmacenamiento))
+                {
+                    int celdaSeleccionada = dataGridView1.CurrentCellAddress.Y;
+                    CelularNuevo idCelu = (CelularNuevo)dataGridView1.Rows[celdaSeleccionada].DataBoundItem;
+                    if (celdaSeleccionada != null)
+                    {
+                        idCelu.marca_producto = textBox1.Text;
+                        idCelu.nombre_producto = textBox2.Text;
+                        idCelu.precio = double.Parse(textBox4.Text);
+                        idCelu.almacenamiento = double.Parse(textBox5.Text);
+                        idCelu.garantia = textBox6.Text;
+                        principal.ModificacionCeluNuevo(idCelu);
+                        MessageBox.Show("Se ha modificado un producto del tipo Celular Nuevo");
+                        ActualizarDataGrid();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Seleccione una celda, por favor");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Los datos de la casilla de precio o almacenamiento fueron ingresados en un formato que no corresponde, inténtelo de nuevo");
+                }
             }
             else
             {
-                MessageBox.Show("Seleccione una celda, por favor");
+                MessageBox.Show("Complete todos los campos, por favor");
             }
         }
 

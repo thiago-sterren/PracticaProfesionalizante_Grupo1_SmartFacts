@@ -4,6 +4,7 @@ using Backk;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Backk.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231110013720_mgmg3")]
+    partial class mgmg3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -56,11 +59,11 @@ namespace Backk.Migrations
 
             modelBuilder.Entity("Backk.Cliente", b =>
                 {
-                    b.Property<int>("idCliente")
+                    b.Property<int>("clienteId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("idCliente"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("clienteId"));
 
                     b.Property<string>("apellido")
                         .IsRequired()
@@ -78,7 +81,7 @@ namespace Backk.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("idCliente");
+                    b.HasKey("clienteId");
 
                     b.ToTable("Clients");
                 });
@@ -97,12 +100,12 @@ namespace Backk.Migrations
                     b.Property<DateTime>("fecha_pedido")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("id_clienteidCliente")
+                    b.Property<int>("idClienteclienteId")
                         .HasColumnType("int");
 
                     b.HasKey("id");
 
-                    b.HasIndex("id_clienteidCliente");
+                    b.HasIndex("idClienteclienteId");
 
                     b.ToTable("Pedidos");
                 });
@@ -202,13 +205,13 @@ namespace Backk.Migrations
 
             modelBuilder.Entity("Backk.Pedido", b =>
                 {
-                    b.HasOne("Backk.Cliente", "id_cliente")
+                    b.HasOne("Backk.Cliente", "idCliente")
                         .WithMany()
-                        .HasForeignKey("id_clienteidCliente")
+                        .HasForeignKey("idClienteclienteId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("id_cliente");
+                    b.Navigation("idCliente");
                 });
 
             modelBuilder.Entity("Backk.Producto", b =>

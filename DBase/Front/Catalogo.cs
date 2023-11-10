@@ -16,7 +16,7 @@ namespace Front
     public partial class Catalogo : Form
     {
         Principal principal = new Principal();
-        List<PedidoProducto> lista = new List<PedidoProducto>();
+        List<Producto> lista = new List<Producto>();
         ApplicationDbContext context = new ApplicationDbContext();
         public Catalogo()
         {
@@ -56,7 +56,7 @@ namespace Front
 
         private void Catalogo_Load(object sender, EventArgs e)
         {
-            label1.Text = $"El cliente actual es: {ClienteActual.cliente_actual.nombre} {ClienteActual.cliente_actual.apellido}";
+            
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -65,9 +65,7 @@ namespace Front
             Producto? idProducto = (Producto)dataGridView1.Rows[celdaSeleccionada].DataBoundItem;
             if (celdaSeleccionada != null)
             {
-                PedidoProducto pp = new PedidoProducto();
-                pp.producto = idProducto;
-                bool resultado = principal.AgregarProducto(lista, pp);
+                bool resultado = principal.AgregarProducto(lista, idProducto);
                 if (resultado == true)
                 {
                     MessageBox.Show("El producto ha sido agregado a su carrito");
@@ -91,39 +89,42 @@ namespace Front
 
         private void button6_Click(object sender, EventArgs e)
         {
-            string pedido_completo = "";
-            foreach (PedidoProducto pp in lista)
+            if (lista.Count > 0)
             {
-                Producto producto = pp.producto;
-                pedido_completo += $"{producto.nombre_producto}, ";
-            }
-            MessageBox.Show($"Su carrito contiene: {pedido_completo}");
-            DialogResult resultado = MessageBox.Show("¿Desea efectuar la compra?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (resultado == DialogResult.Yes)
-            {
-                Pedido pedido = new Pedido();
-                pedido.fecha_pedido = DateTime.Now;
-                pedido.productos = lista;
-                pedido.cantidad_productos = pedido.productos.Count();
-                Cliente cliente_del_pedido = ClienteActual.cliente_actual;
-                Cliente? clienteEncontrado = context.Clients.FirstOrDefault(c => c.id == cliente_del_pedido.id);
-                if (clienteEncontrado != null)
+                string pedido_completo = "";
+                double precio_total = 0;
+                foreach (Producto p in lista)
                 {
-                    pedido.cliente = clienteEncontrado;
+                    pedido_completo += $" - {p.nombre_producto}";
+                    precio_total += p.precio;
+                }
+                MessageBox.Show($"Su carrito contiene: {pedido_completo}. El total a pagar es de: ${precio_total}");
+                DialogResult resultado = MessageBox.Show("¿Desea efectuar la compra?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (resultado == DialogResult.Yes)
+                {
+                    Pedido pedido = new Pedido();
+                    pedido.fecha_pedido = DateTime.Now;
+                    pedido.productos = lista;
+                    pedido.cantidad_productos = pedido.productos.Count();
+                    pedido.id_cliente = ClienteActual.cliente_actual;
                     principal.AltaPedido(pedido);
                     MessageBox.Show("¡Muchas gracias por su compra! Diríjase a la caja para acordar el método de pago con nuestro cajero y así recibir su pedido");
                     Menu menu = new Menu();
                     menu.Show();
                     this.Close();
                 }
+                else if (resultado == DialogResult.No)
+                {
+                    principal.DevolucionProductos(lista);
+                    MessageBox.Show("Pedido cancelado");
+                    Menu menu = new Menu();
+                    menu.Show();
+                    this.Close();
+                }
             }
-            else if (resultado == DialogResult.No)
+            else
             {
-                principal.DevolucionProductos(lista);
-                MessageBox.Show("Pedido cancelado");
-                Menu menu = new Menu();
-                menu.Show();
-                this.Close();
+                MessageBox.Show("No puede realizar un pedido si no ha agregado productos al carrito");
             }
         }
         private void button7_Click_1(object sender, EventArgs e)

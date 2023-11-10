@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Conventions;
 using Microsoft.Identity.Client;
+using System.Data.Entity;
 
 namespace Backk
 {
@@ -71,7 +72,7 @@ namespace Backk
         }
         public void BajaCliente(Cliente cliente)
         {
-            var clienteBuscado = context.Clients.Find(cliente.id);
+            var clienteBuscado = context.Clients.Find(cliente.idCliente);
             if (clienteBuscado != null)
             {
                 context.Clients.Remove(cliente);
@@ -80,7 +81,7 @@ namespace Backk
         }
         public void ModificacionCliente(Cliente clienteMod)
         {
-            var clienteBuscado = context.Clients.Find(clienteMod.id);
+            var clienteBuscado = context.Clients.Find(clienteMod.idCliente);
             if (clienteBuscado != null)
             {
                 clienteBuscado.nombre = clienteMod.nombre;
@@ -95,17 +96,16 @@ namespace Backk
             context.Pedidos.Add(pedido);
             context.SaveChanges();
         }
-        public bool AgregarProducto(List<PedidoProducto> lista, PedidoProducto pedido_producto)
+        public bool AgregarProducto(List<Producto> lista, Producto producto)
         {
-            Producto producto_real = pedido_producto.producto;
-            if (producto_real.disponibilidad == Producto.DispStock.Disponible)
+            if (producto.disponibilidad == Producto.DispStock.Disponible)
             {
-                producto_real.stock -= 1;
-                if (producto_real.stock == 0)
+                producto.stock -= 1;
+                if (producto.stock == 0)
                 {
-                    producto_real.disponibilidad = Producto.DispStock.NoDisponible;
+                    producto.disponibilidad = Producto.DispStock.NoDisponible;
                 }
-                lista.Add(pedido_producto);
+                lista.Add(producto);
                 context.SaveChanges();
                 return true;
             }
@@ -114,15 +114,14 @@ namespace Backk
                 return false;
             }
         }
-        public void DevolucionProductos(List<PedidoProducto> lista)
+        public void DevolucionProductos(List<Producto> lista)
         {
-            foreach (PedidoProducto pp in lista)
+            foreach (Producto p in lista)
             {
-                Producto producto_real = pp.producto;
-                producto_real.stock += 1;
-                if (producto_real.disponibilidad == Producto.DispStock.NoDisponible)
+                p.stock += 1;
+                if (p.disponibilidad == Producto.DispStock.NoDisponible)
                 {
-                    producto_real.disponibilidad = Producto.DispStock.Disponible;
+                    p.disponibilidad = Producto.DispStock.Disponible;
                 }
                 context.SaveChanges();
             }

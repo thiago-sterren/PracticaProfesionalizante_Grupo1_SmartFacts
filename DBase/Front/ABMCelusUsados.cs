@@ -33,10 +33,28 @@ namespace Front
 
         private void button1_Click(object sender, EventArgs e)
         {
-            CelularUsado celuUsado = new CelularUsado(textBox1.Text, textBox2.Text, double.Parse(textBox4.Text), double.Parse(textBox5.Text), textBox6.Text, textBox7.Text, textBox8.Text);
-            principal.AltaCeluUsado(celuUsado);
-            MessageBox.Show("Se ha agregado un producto del tipo Celular Usado");
-            ActualizarDataGrid();
+            if (textBox1.Text != "" && textBox2.Text != "" && textBox4.Text != "" && textBox5.Text != "" && textBox6.Text != "" && textBox7.Text != "" && textBox8.Text != "")
+            {
+                string txtPrecio = textBox4.Text;
+                double numeroPrecio;
+                string txtAlmacenamiento = textBox5.Text;
+                double numeroAlmacenamiento;
+                if (double.TryParse(txtPrecio, out numeroPrecio) && double.TryParse(txtAlmacenamiento, out numeroAlmacenamiento))
+                {
+                    CelularUsado celuUsado = new CelularUsado(textBox1.Text, textBox2.Text, double.Parse(textBox4.Text), double.Parse(textBox5.Text), textBox6.Text, textBox7.Text, textBox8.Text);
+                    principal.AltaCeluUsado(celuUsado);
+                    MessageBox.Show("Se ha agregado un producto del tipo Celular Usado");
+                    ActualizarDataGrid();
+                }
+                else
+                {
+                    MessageBox.Show("Los datos de la casilla de precio o almacenamiento fueron ingresados en un formato que no corresponde, inténtelo de nuevo");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Complete todos los campos, por favor");
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -57,24 +75,42 @@ namespace Front
 
         private void button3_Click(object sender, EventArgs e)
         {
-            int celdaSeleccionada = dataGridView1.CurrentCellAddress.Y;
-            CelularUsado idCelu = (CelularUsado)dataGridView1.Rows[celdaSeleccionada].DataBoundItem;
-            if (celdaSeleccionada != null)
+            if (textBox1.Text != "" && textBox2.Text != "" && textBox4.Text != "" && textBox5.Text != "" && textBox6.Text != "" && textBox7.Text != "" && textBox8.Text != "")
             {
-                idCelu.marca_producto = textBox1.Text;
-                idCelu.nombre_producto = textBox2.Text;
-                idCelu.precio = double.Parse(textBox4.Text);
-                idCelu.almacenamiento = double.Parse(textBox5.Text);
-                idCelu.detalles = textBox6.Text;
-                idCelu.uso = textBox7.Text;
-                idCelu.condicion_bat = textBox8.Text;
-                principal.ModificacionCeluUsado(idCelu);
-                MessageBox.Show("Se ha modificado un producto del tipo Celular Usado");
-                ActualizarDataGrid();
+                string txtPrecio = textBox4.Text;
+                double numeroPrecio;
+                string txtAlmacenamiento = textBox5.Text;
+                double numeroAlmacenamiento;
+                if (double.TryParse(txtPrecio, out numeroPrecio) && double.TryParse(txtAlmacenamiento, out numeroAlmacenamiento))
+                {
+                    int celdaSeleccionada = dataGridView1.CurrentCellAddress.Y;
+                    CelularUsado idCelu = (CelularUsado)dataGridView1.Rows[celdaSeleccionada].DataBoundItem;
+                    if (celdaSeleccionada != null)
+                    {
+                        idCelu.marca_producto = textBox1.Text;
+                        idCelu.nombre_producto = textBox2.Text;
+                        idCelu.precio = double.Parse(textBox4.Text);
+                        idCelu.almacenamiento = double.Parse(textBox5.Text);
+                        idCelu.detalles = textBox6.Text;
+                        idCelu.uso = textBox7.Text;
+                        idCelu.condicion_bat = textBox8.Text;
+                        principal.ModificacionCeluUsado(idCelu);
+                        MessageBox.Show("Se ha modificado un producto del tipo Celular Usado");
+                        ActualizarDataGrid();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Seleccione una celda, por favor");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Los datos de la casilla de precio o almacenamiento fueron ingresados en un formato que no corresponde, inténtelo de nuevo");
+                }
             }
             else
             {
-                MessageBox.Show("Seleccione una celda, por favor");
+                MessageBox.Show("Complete todos los campos, por favor");
             }
         }
 
@@ -100,6 +136,11 @@ namespace Front
                 MessageBox.Show("Cambio realizado");
                 ActualizarDataGrid();
             }
+        }
+
+        private void textBox5_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
