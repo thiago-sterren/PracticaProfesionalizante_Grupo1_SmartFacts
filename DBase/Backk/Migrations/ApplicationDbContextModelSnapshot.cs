@@ -94,15 +94,13 @@ namespace Backk.Migrations
                     b.Property<int>("cantidad_productos")
                         .HasColumnType("int");
 
+                    b.Property<int>("clienteId")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("fecha_pedido")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("id_clienteidCliente")
-                        .HasColumnType("int");
-
                     b.HasKey("id");
-
-                    b.HasIndex("id_clienteidCliente");
 
                     b.ToTable("Pedidos");
                 });
@@ -198,17 +196,6 @@ namespace Backk.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasDiscriminator().HasValue("Notebook");
-                });
-
-            modelBuilder.Entity("Backk.Pedido", b =>
-                {
-                    b.HasOne("Backk.Cliente", "id_cliente")
-                        .WithMany()
-                        .HasForeignKey("id_clienteidCliente")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("id_cliente");
                 });
 
             modelBuilder.Entity("Backk.Producto", b =>

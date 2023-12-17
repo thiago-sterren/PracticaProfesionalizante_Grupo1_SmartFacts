@@ -12,3 +12,4 @@ C:\Users\thiag\Desktop\Thiago\GitHub\PracticaProfesionalizante_Grupo1_SmartFacts
 C:\Users\thiag\Desktop\Thiago\GitHub\PracticaProfesionalizante_Grupo1_SmartFacts\DBase\Backk\obj\Debug\net6.0\Backk.pdb
 C:\Users\thiag\Desktop\Thiago\GitHub\PracticaProfesionalizante_Grupo1_SmartFacts\DBase\Backk\obj\Debug\net6.0\Backk.genruntimeconfig.cache
 C:\Users\thiag\Desktop\Thiago\GitHub\PracticaProfesionalizante_Grupo1_SmartFacts\DBase\Backk\obj\Debug\net6.0\ref\Backk.dll
+C:\Users\thiag\Desktop\Thiago\GitHub\PracticaProfesionalizante_Grupo1_SmartFacts\DBase\Backk\obj\Debug\net6.0\Backk.sourcelink.json

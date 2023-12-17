@@ -79,3 +79,4 @@ C:\Users\thiag\Desktop\Thiago\GitHub\PracticaProfesionalizante_Grupo1_SmartFacts
 C:\Users\thiag\Desktop\Thiago\GitHub\PracticaProfesionalizante_Grupo1_SmartFacts\DBase\Front\obj\Debug\net6.0-windows\Front.ABMCelusNuevos.resources
 C:\Users\thiag\Desktop\Thiago\GitHub\PracticaProfesionalizante_Grupo1_SmartFacts\DBase\Front\obj\Debug\net6.0-windows\Front.ABMCelusUsados.resources
 C:\Users\thiag\Desktop\Thiago\GitHub\PracticaProfesionalizante_Grupo1_SmartFacts\DBase\Front\obj\Debug\net6.0-windows\Front.ABMNotebooks.resources
+C:\Users\thiag\Desktop\Thiago\GitHub\PracticaProfesionalizante_Grupo1_SmartFacts\DBase\Front\obj\Debug\net6.0-windows\Front.sourcelink.json

@@ -106,7 +106,7 @@ namespace Front
                     pedido.fecha_pedido = DateTime.Now;
                     pedido.productos = lista;
                     pedido.cantidad_productos = pedido.productos.Count();
-                    pedido.id_cliente = ClienteActual.cliente_actual;
+                    pedido.clienteId = ClienteActual.cliente_actual.idCliente;
                     principal.AltaPedido(pedido);
                     MessageBox.Show("¡Muchas gracias por su compra! Diríjase a la caja para acordar el método de pago con nuestro cajero y así recibir su pedido");
                     Menu menu = new Menu();
